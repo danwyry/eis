@@ -7,7 +7,7 @@ class Chopper
       	0
       elsif lista == [0,7,3]
       	2
-      end
+      end 
     end
   end
 end
