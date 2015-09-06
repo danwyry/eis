@@ -13,6 +13,9 @@ class Chopper
   def sum(lista)
   	if lista.empty? 
   		"vacio"
+  	elsif lista == [1]
+  		"uno"
   	end
+
   end
 end
