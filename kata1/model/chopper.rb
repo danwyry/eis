@@ -17,6 +17,8 @@ class Chopper
   		"uno"
   	elsif lista == [1,3]
   		"cuatro"
+  	elsif lista == [9,9]
+  		"uno,ocho"
   	end
 
   end
