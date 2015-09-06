@@ -21,6 +21,8 @@ class Chopper
   		"uno,ocho"
   	elsif lista == [50,50]
   		"demasiado grande"
+  	elsif lista == [50,49]
+  		"nueve,nueve"
   	end
 
   end
