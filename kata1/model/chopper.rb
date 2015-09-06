@@ -10,4 +10,9 @@ class Chopper
       end 
     end
   end
+  def sum(lista)
+  	if lista.empty? 
+  		"vacio"
+  	end
+  end
 end
