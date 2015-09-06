@@ -15,6 +15,8 @@ class Chopper
   		"vacio"
   	elsif lista == [1]
   		"uno"
+  	elsif lista == [1,3]
+  		"cuatro"
   	end
 
   end
