@@ -1,13 +1,9 @@
 class Chopper
   def chop(value, list)
-    if value == 3 
-      if list.empty?
-        -1
-      elsif list == [3]
-      	0
-      elsif list == [0,7,3]
-      	2
-      end 
+    if list.empty?
+      return -1
+    else 
+      return list.take_while { | curr | curr != value }.size
     end
   end
   def sum(list)
