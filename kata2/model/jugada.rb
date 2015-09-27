@@ -1,11 +1,11 @@
 class Jugada
 
     def initialize()
-        @le_ganan = []
+        @les_gana_a = []
     end
 
     def le_gana_a?(otra_jugada)
-        @le_ganan.member? otra_jugada.class
+        @les_gana_a.member? otra_jugada.class
     end
 
 end
@@ -15,7 +15,7 @@ end
 
 class Piedra < Jugada
     def initialize()
-        @le_ganan = [ Tijera ]
+        @les_gana_a = [ Tijera ]
     end
 end
 
