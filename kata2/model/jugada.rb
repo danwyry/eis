@@ -1,5 +1,30 @@
 class Jugada
 
+    def initialize(jugador, tipo_elemento) 
+        @jugador = jugador
+        @elemento = tipo_elemento.new()
+    end
+
+    def empata_con? jugada
+        return @elemento.empata_con? jugada.elemento
+    end
+    
+    def le_gana_a? jugada
+        return @elemento.le_gana_a? jugada.elemento
+    end
+
+    def jugador
+        return @jugador
+    end
+
+    def elemento
+        return @elemento
+    end
+
+end
+
+class Elemento 
+
     def initialize()
         @les_gana_a = []
     end
@@ -14,25 +39,25 @@ class Jugada
 
 end
 
-class Tijera < Jugada
+class Tijera < Elemento
     def initialize()
         @les_gana_a = [ Papel , Mono ]
     end
 end
 
-class Piedra < Jugada
+class Piedra < Elemento
     def initialize()
         @les_gana_a = [ Tijera ]
     end
 end
 
-class Papel < Jugada
+class Papel < Elemento
     def initialize()
         @les_gana_a = [ Piedra ]
     end
 end
 
-class Mono < Jugada
+class Mono < Elemento
     def initialize()
         @les_gana_a = [ Papel ]
     end

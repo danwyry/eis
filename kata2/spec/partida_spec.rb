@@ -34,8 +34,18 @@ describe 'Partida' do
 
     it 'jugar_ronda el contador de rondas jugadas se incrementa en 1' do
         expect(partida.rondas_jugadas).to eq 0
-        partida.jugar_ronda Tijera, Papel
+        partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         expect(partida.rondas_jugadas).to eq 1
     end
+
+#    it 'ganador devuelve nil si no se jugaron todas las rondas necesarias' do
+#        expect(partida.ganador).to eq nil
+#        partida.jugar_ronda Tijera, Papel
+#        expect(partida.ganador).to eq nil
+#        partida.jugar_ronda Tijera, Papel
+#        expect(partida.ganador).to eq nil
+#        partida.jugar_ronda Tijera, Papel
+#        expect(partida.ganador).not_to eq nil
+#    end
 
 end

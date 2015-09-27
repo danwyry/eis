@@ -1,10 +1,7 @@
 require_relative 'jugada'
 class Jugador
-    def juega(jugada)
-        @jugada = jugada.new()
+    def juega(tipo_elemento)
+        return Jugada.new self, tipo_elemento
     end
 
-    def jugada()
-        return @jugada
-    end
 end

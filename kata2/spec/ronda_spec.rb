@@ -20,44 +20,13 @@ require_relative '../model/ronda'
 require_relative '../model/jugador'
 
 describe 'Ronda' do
-    let(:ronda) { Ronda.new }
     let(:jugador1) { Jugador.new() }
     let(:jugador2) { Jugador.new() }
 
-    it 'piedra le gana tijera' do
-        jugador1.juega Piedra
-        jugador2.juega Tijera
-		expect(ronda.ganador_entre? jugador1 , jugador2 ).to eq jugador1
+    it 'ganador devuelve jugador1 si su jugada le gana a la de jugador2' do
+        ronda = Ronda.new jugador1.juega(Piedra), jugador2.juega(Tijera)
+        expect(ronda.ganador).to eq jugador1
     end
 
-    it 'tijera le gana papel' do
-        jugador1.juega Tijera
-        jugador2.juega Papel
-		expect(ronda.ganador_entre? jugador1 , jugador2 ).to eq jugador1
-    end
-
-    it 'papel le gana a piedra' do
-        jugador1.juega Papel
-        jugador2.juega Piedra
-        expect(ronda.ganador_entre? jugador1, jugador2 ).to eq jugador1
-    end
-
-    it 'mono le gana a papel' do
-        jugador1.juega Mono
-        jugador2.juega Papel
-        expect(ronda.ganador_entre? jugador1, jugador2 ).to eq jugador1
-    end
-
-    it 'tijera le gana a mono' do
-        jugador1.juega Tijera
-        jugador2.juega Mono
-        expect(ronda.ganador_entre? jugador1, jugador2 ).to eq jugador1
-    end
-
-    it 'mono mono empata con piedra' do
-        jugador1.juega Piedra
-        jugador2.juega Mono
-        expect(ronda.ganador_entre? jugador1, jugador2 ).to eq nil
-    end
 end
 
