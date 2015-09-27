@@ -27,3 +27,9 @@ class Papel < Jugada
         @les_gana_a = [ Piedra ]
     end
 end
+
+class Mono < Jugada
+    def initialize()
+        @les_gana_a = [ Papel ]
+    end
+end
