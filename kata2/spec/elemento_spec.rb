@@ -153,10 +153,10 @@ describe 'Mono' do
         expect(mono.empata_con? tijera).to be_falsey
     end
 
-#    it 'empata_con? Papel devuelve true' do
-#        expect(mono.empata_con? papel).to be_truthy
-#    end
-#
+    it 'empata_con? Papel devuelve false' do
+        expect(mono.empata_con? papel).to be_falsey
+    end
+
 #    it 'empata_con? Piedra devuelve false' do
 #        expect(mono.empata_con? piedra).to be_falsey
 #    end
