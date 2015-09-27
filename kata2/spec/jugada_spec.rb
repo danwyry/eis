@@ -38,7 +38,7 @@ describe 'Jugada' do
         expect(jugada.le_gana_a? jugada_que_pierde).to be_truthy
     end
     
-#    it 'le_gana_a? jugada_que_gana devuelve false si el elemento de jugada_que_gana gana contra el elemento de la propia' do
-#        expect(jugada.le_gana_a? jugada_que_gana).to be_falsey
-#    end
+    it 'le_gana_a? jugada_que_gana devuelve false si el elemento de jugada_que_gana gana contra el elemento de la propia' do
+        expect(jugada.le_gana_a? jugada_que_gana).to be_falsey
+    end
 end
