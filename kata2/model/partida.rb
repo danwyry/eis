@@ -19,17 +19,28 @@ class Partida
         return @jugador2
     end
 
+    def numero_rondas
+        return 3 
+    end
+
     def jugar_ronda(jugada_jugador1, jugada_jugador2)
-        @rondas.push Ronda.new(jugada_jugador1, jugada_jugador2)
+        if @rondas.length < self.numero_rondas
+            @rondas.push Ronda.new(jugada_jugador1, jugada_jugador2)
+        else 
+            raise PartidaFinalizadaError
+        end
     end
 
     def ganador
-        if @rondas.length < 3
+        if @rondas.length < self.numero_rondas
             return nil 
         else 
             return @rondas.collect { |ronda| ronda.ganador }.majority
         end
     end
+end
+
+class PartidaFinalizadaError < Exception
 end
 
 

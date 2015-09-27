@@ -48,4 +48,12 @@ describe 'Partida' do
         expect(partida.ganador).not_to eq nil
     end
 
+    it 'ganador jugar_ronda lanza un PartidaFinalizadaError si ya se jugaron todas las rondas de una partida' do
+        partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+        partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+        partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+
+        expect{ partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel) }.to raise_error(PartidaFinalizadaError)
+    end
+
 end
