@@ -32,5 +32,10 @@ describe 'Ronda' do
         ronda = Ronda.new jugador1.juega(Tijera), jugador2.juega(Piedra)
         expect(ronda.ganador).to eq jugador2
     end
+
+    it 'ganador devuelve nil si las jugadas empatan' do
+        ronda = Ronda.new jugador1.juega(Tijera), jugador2.juega(Piedra)
+        expect(ronda.ganador).to eq jugador2
+    end
 end
 
