@@ -54,5 +54,10 @@ describe 'Ronda' do
         expect(ronda.ganador_entre? jugador1, jugador2 ).to eq jugador1
     end
 
+    it 'mono mono empata con piedra' do
+        jugador1.juega Piedra
+        jugador2.juega Mono
+        expect(ronda.ganador_entre? jugador1, jugador2 ).to eq nil
+    end
 end
 
