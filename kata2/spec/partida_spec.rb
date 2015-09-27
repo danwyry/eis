@@ -32,17 +32,17 @@ describe 'Partida' do
         expect(partida.rondas_jugadas).to eq 0
     end
 
-    it 'jugar_ronda el contador de rondas jugadas se incrementa en 1' do
+    it 'jugar_ronda incrementa en 1 el contador de rondas jugadas ' do
         expect(partida.rondas_jugadas).to eq 0
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         expect(partida.rondas_jugadas).to eq 1
     end
 
-    it 'numero_rondas devuelve el numero total que se considera para que una partida este finalizada' do
+    it 'numero_rondas devuelve el numero total de rondas que deben jugarse para una partida este finalizada' do
         expect(partida.numero_rondas).to eq 3
     end
 
-    it 'ganador devuelve nil si no se jugaron todas las rondas necesarias' do
+    it 'ganador devuelve nil si no finalizó la partida' do
         expect(partida.ganador).to eq nil
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         expect(partida.ganador).to eq nil
@@ -53,7 +53,7 @@ describe 'Partida' do
         expect(partida.ganador).not_to eq nil
     end
 
-    it 'ganador jugar_ronda lanza un PartidaFinalizadaError si ya se jugaron todas las rondas de una partida' do
+    it 'ganador jugar_ronda lanza un PartidaFinalizadaError si la partida esta finalizada' do
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
@@ -61,7 +61,7 @@ describe 'Partida' do
         expect{ partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel) }.to raise_error(PartidaFinalizadaError)
     end
 
-    it 'ganador devuelve el jugador que ganó la partida si ya se jugaron todas las rondas necesarias' do
+    it 'ganador devuelve el jugador que ganó la partida si la partida esta finalizada' do
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
