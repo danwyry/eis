@@ -20,14 +20,14 @@ class Partida
     end
 
     def jugar_ronda(jugada_jugador1, jugada_jugador2)
-        @rondas.push Ronda.new jugada_jugador1, jugada_jugador2
+        @rondas.push Ronda.new(jugada_jugador1, jugada_jugador2)
     end
 
     def ganador
         if @rondas.length < 3
             return nil 
         else 
-            return @rondas.collect { |ronda| ronda.ganador_entre? @jugador1,@jugador2 }.majority
+            return @rondas.collect { |ronda| ronda.ganador }.majority
         end
     end
 end

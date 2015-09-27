@@ -7,7 +7,7 @@ class Ronda
 
     def ganador
         if @jugada_jugador1.empata_con? @jugada_jugador2 
-            nil
+            return nil
         elsif @jugada_jugador1.le_gana_a? @jugada_jugador2
             return @jugada_jugador1.jugador
         else
