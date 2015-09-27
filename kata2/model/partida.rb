@@ -17,5 +17,8 @@ class Partida
         return @jugador2
     end
 
+    def jugar_ronda(j1_jugada , j2_jugada) 
+        @rondas_jugadas += 1 
+    end
 end
 

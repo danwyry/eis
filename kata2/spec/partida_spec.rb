@@ -16,6 +16,7 @@
 
 require 'rspec'
 require_relative '../model/partida'
+require_relative '../model/jugador'
 
 describe 'Partida' do
     let(:jugador1) { Jugador.new }
@@ -27,8 +28,14 @@ describe 'Partida' do
         expect(partida.jugador2).to eq jugador2
     end
 
-    it 'la partida se inicializa con el contador de rondas juadas en 0' do
-        expect(partida.rondas_jugadas).to eq 0 
+    it 'la partida se inicializa con el contador de rondas jugadas en 0' do
+        expect(partida.rondas_jugadas).to eq 0
+    end
+
+    it 'jugar_ronda el contador de rondas jugadas se incrementa en 1' do
+        expect(partida.rondas_jugadas).to eq 0
+        partida.jugar_ronda Tijera, Papel
+        expect(partida.rondas_jugadas).to eq 1
     end
 
 end
