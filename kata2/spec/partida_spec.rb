@@ -38,12 +38,17 @@ describe 'Partida' do
         expect(partida.rondas_jugadas).to eq 1
     end
 
+    it 'numero_rondas devuelve el numero total que se considera para que una partida este finalizada' do
+        expect(partida.numero_rondas).to eq 3
+    end
+
     it 'ganador devuelve nil si no se jugaron todas las rondas necesarias' do
         expect(partida.ganador).to eq nil
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         expect(partida.ganador).to eq nil
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         expect(partida.ganador).to eq nil
+
         partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
         expect(partida.ganador).not_to eq nil
     end
