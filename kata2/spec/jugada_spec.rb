@@ -20,4 +20,8 @@ describe 'Jugada' do
     it 'empata_con? jugada_que_empata devuelve true si los elementos de ambas jugadas empatan' do
         expect(jugada.empata_con? jugada_que_empata).to be_truthy
     end
+
+    it 'empata_con? jugada_que_pierde devuelve false si el elemento de jugada_que_pierde pierde contra la propia' do
+        expect(jugada.empata_con? jugada_que_empata).to be_truthy
+    end
 end
