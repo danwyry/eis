@@ -12,7 +12,7 @@ end
 
 class Tijera < Jugada
     def initialize()
-        @les_gana_a = [ Papel ]
+        @les_gana_a = [ Papel , Mono ]
     end
 end
 
