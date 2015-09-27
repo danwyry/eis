@@ -4,6 +4,10 @@ class Jugada
         @les_gana_a = []
     end
 
+    def empata_con?(otra_jugada)
+        return not( self.le_gana_a?(otra_jugada) or otra_jugada.le_gana_a?(self) )
+    end
+
     def le_gana_a?(otra_jugada)
         @les_gana_a.member? otra_jugada.class
     end
