@@ -1,16 +1,15 @@
 #Consigna:
 #
-# La primer variación es Piedra-Papel-Tijera-Mono, a las reglas ya conocidas se
-# agrega:
+# Por otro lado aparece el concepto de "partida", una partida es una competencia
+# al mejor de tres rondas. O sea, un jugador para ganar una partida tiene que
+# ganar 2 rondas (análogo a lo que ocurre en el tenis o el voley con los sets).
 #
-# * Mono gana a papel
-# * Mono pierde con tijera
-# * Mono empata con Piedra
-#
-# Ejemplo 1: dinámica de una ronda
-# jugador1 juega piedra
-# jugador2 juega papel
-# entonces la ronda la gana jugador2
+# Ejemplo 2: dinámica de una partida
+# jugador1 gana la primera ronda
+# jugador2 gana la segunda ronda
+# entonces hasta el momento no hay ganador de la partida
+# jugador2 gana la tercera ronda
+# entonces la partida la gana jugador2%
 #
 # Una vez completa la tarea, generar un TAG en el repositorio y subir a alfred el link a dicho TAG
 # Fecha de entrega 30 de Septiembre
@@ -18,12 +17,18 @@
 require 'rspec'
 require_relative '../model/partida'
 
-describe 'Ronda' do
-    let(:partida) { Partida.new }
+describe 'Partida' do
+    let(:jugador1) { Jugador.new }
+    let(:jugador2) { Jugador.new }
+    let(:partida) { Partida.new jugador1, jugador2  }
 
-    it 'la partida se inicializa sin jugadores' do
-        expect(partida.jugador1).to eq nil
-        expect(partida.jugador2).to eq nil
+    it 'la partida se inicializa con 2 jugadores' do
+        expect(partida.jugador1).to eq jugador1
+        expect(partida.jugador2).to eq jugador2
+    end
+
+    it 'la partida se inicializa con el contador de rondas juadas en 0' do
+        expect(partida.rondas_jugadas).to eq 0 
     end
 
 end
