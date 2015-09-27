@@ -11,6 +11,9 @@ class Jugada
 end
 
 class Tijera < Jugada
+    def initialize()
+        @les_gana_a = [ Papel ]
+    end
 end
 
 class Piedra < Jugada
@@ -19,3 +22,5 @@ class Piedra < Jugada
     end
 end
 
+class Papel < Jugada
+end

@@ -29,5 +29,11 @@ describe 'Ronda' do
         jugador2.juega Tijera
 		expect(ronda.ganador_entre? jugador1 , jugador2 ).to eq jugador1
     end
+
+    it 'tijera le gana papel' do
+        jugador1.juega Tijera
+        jugador2.juega Papel
+		expect(ronda.ganador_entre? jugador1 , jugador2 ).to eq jugador1
+    end
 end
 
