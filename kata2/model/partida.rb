@@ -35,7 +35,7 @@ class Partida
         if @rondas.length < self.numero_rondas
             return nil 
         else 
-            return @rondas.collect { |ronda| ronda.ganador }.majority
+            return @rondas.map{ |ronda| return ronda.ganador }.elemento_mayoritario
         end
     end
 end
@@ -45,7 +45,7 @@ end
 
 
 class Array 
-    def majority()
-        self.group_by(&:itself).values.max_by(&:size).first
+    def elemento_mayoritario()
+        return self.group_by(&:itself).values.max_by(&:size).first
     end
 end

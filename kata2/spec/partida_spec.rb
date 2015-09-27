@@ -61,4 +61,12 @@ describe 'Partida' do
         expect{ partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel) }.to raise_error(PartidaFinalizadaError)
     end
 
+    it 'ganador devuelve el jugador que ganó la partida si ya se jugaron todas las rondas necesarias' do
+        partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+        partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+        partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+
+        expect( partida.ganador ).to eq jugador1
+    end
+
 end
