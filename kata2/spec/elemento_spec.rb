@@ -66,11 +66,11 @@ describe 'Tijera' do
     it 'le_gana_a? Mono devuelve true' do
         expect(tijera.le_gana_a? mono).to be_truthy
     end
-#
-#    it 'le_gana_a? Piedra devuelve false' do
-#        expect(tijera.le_gana_a? piedra).to be_falsey
-#    end
-#
+
+    it 'le_gana_a? Piedra devuelve false' do
+        expect(tijera.le_gana_a? piedra).to be_falsey
+    end
+
 #    it 'empata_con? Tijera devuelve false' do
 #        expect(tijera.empata_con? tijera).to be_falsey
 #    end
