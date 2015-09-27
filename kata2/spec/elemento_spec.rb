@@ -31,5 +31,9 @@ describe 'Piedra' do
     it 'le_gana_a? Piedra devuelve false' do
         expect(piedra.le_gana_a? piedra).to be_falsey
     end
+
+    it 'empata_con? Tijera devuelve false' do
+        expect(piedra.empata_con? tijera).to be_falsey
+    end
 end
 
