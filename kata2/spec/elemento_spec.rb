@@ -59,9 +59,9 @@ describe 'Tijera' do
         expect(tijera.le_gana_a? tijera ).to be_falsey
     end
 
-#    it 'le_gana_a? Papel devuelve false' do
-#        expect(tijera.le_gana_a? papel ).to be_falsey
-#    end
+    it 'le_gana_a? Papel devuelve true' do
+        expect(tijera.le_gana_a? papel ).to be_truthy
+    end
 #
 #    it 'le_gana_a? Mono devuelve false' do
 #        expect(tijera.le_gana_a? mono).to be_falsey
