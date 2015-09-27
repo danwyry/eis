@@ -161,8 +161,8 @@ describe 'Mono' do
         expect(mono.empata_con? piedra).to be_truthy
     end
 
-#    it 'empata_con? Mono devuelve false' do
-#        expect(mono.empata_con? mono).to be_falsey
-#    end
+    it 'empata_con? Mono devuelve true' do
+        expect(mono.empata_con? mono).to be_truthy
+    end
 end
 
