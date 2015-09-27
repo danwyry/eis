@@ -28,5 +28,9 @@ describe 'Ronda' do
         expect(ronda.ganador).to eq jugador1
     end
 
+    it 'ganador devuelve jugador2 si su jugada le gana a la de jugador1' do
+        ronda = Ronda.new jugador1.juega(Tijera), jugador2.juega(Piedra)
+        expect(ronda.ganador).to eq jugador2
+    end
 end
 
