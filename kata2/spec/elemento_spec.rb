@@ -106,10 +106,10 @@ describe 'Papel' do
         expect(papel.le_gana_a? mono).to be_falsey
     end
 
-#    it 'le_gana_a? Piedra devuelve false' do
-#        expect(papel.le_gana_a? piedra).to be_falsey
-#    end
-#
+    it 'le_gana_a? Piedra devuelve true' do
+        expect(papel.le_gana_a? piedra).to be_truthy
+    end
+
 #    it 'empata_con? Tijera devuelve true' do
 #        expect(papel.empata_con? tijera).to be_truthy
 #    end
