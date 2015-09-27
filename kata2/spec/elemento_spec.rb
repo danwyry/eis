@@ -127,3 +127,42 @@ describe 'Papel' do
     end
 end
 
+describe 'Mono' do
+    let(:mono) { Mono.new() }
+    let(:papel) { Papel.new() }
+    let(:tijera) { Tijera.new() }
+    let(:piedra) { Piedra.new() }
+
+    it 'le_gana_a? Tijera devuelve false' do
+        expect(mono.le_gana_a? tijera ).to be_falsey
+    end
+
+#    it 'le_gana_a? Papel devuelve false' do
+#        expect(mono.le_gana_a? papel ).to be_falsey
+#    end
+#
+#    it 'le_gana_a? Mono devuelve false' do
+#        expect(mono.le_gana_a? mono).to be_falsey
+#    end
+#
+#    it 'le_gana_a? Piedra devuelve true' do
+#        expect(mono.le_gana_a? piedra).to be_truthy
+#    end
+#
+#    it 'empata_con? Tijera devuelve false' do
+#        expect(mono.empata_con? tijera).to be_falsey
+#    end
+#
+#    it 'empata_con? Papel devuelve true' do
+#        expect(mono.empata_con? papel).to be_truthy
+#    end
+#
+#    it 'empata_con? Piedra devuelve false' do
+#        expect(mono.empata_con? piedra).to be_falsey
+#    end
+#
+#    it 'empata_con? Mono devuelve false' do
+#        expect(mono.empata_con? mono).to be_falsey
+#    end
+end
+
