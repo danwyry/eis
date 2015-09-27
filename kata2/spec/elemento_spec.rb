@@ -17,7 +17,11 @@ describe 'Piedra' do
     let(:mono) { Mono.new() }
 
     it 'le_gana_a? Tijera devuelve true' do
-        expect(piedra.le_gana_a? tijera ).to be_true
+        expect(piedra.le_gana_a? tijera ).to be_truthy
+    end
+
+    it 'le_gana_a? Papel devuelve false' do
+        expect(piedra.le_gana_a? papel ).to be_falsey
     end
 end
 
