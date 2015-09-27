@@ -82,9 +82,9 @@ describe 'Tijera' do
     it 'empata_con? Piedra devuelve false' do
         expect(tijera.empata_con? piedra).to be_falsey
     end
-#
-#    it 'empata_con? Mono devuelve true' do
-#        expect(tijera.empata_con? mono).to be_truthy
-#    end
+
+    it 'empata_con? Mono devuelve false' do
+        expect(tijera.empata_con? mono).to be_falsey
+    end
 end
 
