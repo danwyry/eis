@@ -41,7 +41,11 @@ describe 'Piedra' do
     end
 
     it 'empata_con? Piedra devuelve true' do
-        expect(piedra.empata_con? papel).to be_falsey
+        expect(piedra.empata_con? piedra).to be_truthy
     end
+
+#    it 'empata_con? Mono devuelve true' do
+#        expect(piedra.empata_con? mono).to be_falsey
+#    end
 end
 
