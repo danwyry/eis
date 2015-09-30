@@ -20,36 +20,36 @@ class Partida
   end
 
   def numero_rondas
-    return 3 
+    return 3
   end
 
   def jugar_ronda(jugada_jugador1, jugada_jugador2)
     if @rondas.length < self.numero_rondas
       @rondas.push Ronda.new(jugada_jugador1, jugada_jugador2)
-    else 
+    else
       raise PartidaFinalizadaError
     end
   end
 
   def ganador
-    if @rondas.length < self.numero_rondas
-      return nil 
-    else  
-      return self.ganadores_por_ronda.elemento_mayoritario
+    if cant_rondas_ganadas_por(@jugador1) > cant_rondas_ganadas_por(@jugador2)
+      return jugador1
+    elsif cant_rondas_ganadas_por(@jugador2) > cant_rondas_ganadas_por(@jugador1)
+      return jugador2
+    else
+      return nil
     end
   end
 
-  def ganadores_por_ronda
-    return @rondas.map(&:ganador).select{|jugador| not jugador.nil? }
+  def cant_rondas_ganadas_por(jugador)
+    return rondas_ganadas_por(jugador).size
   end
+
+  def rondas_ganadas_por(jugador)
+    return @rondas.map(&:ganador).select{| j |  j.eql? jugador }
+  end
+
 end
 
 class PartidaFinalizadaError < Exception
-end
-
-
-class Array 
-  def elemento_mayoritario()
-    return self.group_by(&:itself).values.max_by(&:size).first
-  end
 end

@@ -42,18 +42,29 @@ describe 'Partida' do
     expect(partida.numero_rondas).to eq 3
   end
 
-  it 'ganador devuelve nil si no finalizó la partida' do
-    expect(partida.ganador).to eq nil
+  it 'ganador devuelve el jugador que mas rondas ganó hasta el momento' do
     partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
-    expect(partida.ganador).to eq nil
-    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
-    expect(partida.ganador).to eq nil
+    expect( partida.ganador ).to eq jugador1
 
     partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
-    expect(partida.ganador).not_to eq nil
+    expect( partida.ganador ).to eq jugador1
+
+    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+    expect( partida.ganador ).to eq jugador1
   end
 
-  it 'ganador jugar_ronda lanza un PartidaFinalizadaError si la partida esta finalizada' do
+#  it 'ganador devuelve nil si no hay un jugador con mas partidas ganadas que otro' do
+#    expect(partida.ganador).to eq nil
+#    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Tijera)
+#    expect(partida.ganador).to eq nil
+#    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+#    expect(partida.ganador).to eq nil
+#
+#    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
+#    expect(partida.ganador).not_to eq nil
+#  end
+
+  it 'jugar_ronda lanza un PartidaFinalizadaError si la partida esta finalizada' do
     partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
     partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
     partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
@@ -61,12 +72,5 @@ describe 'Partida' do
     expect{ partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel) }.to raise_error(PartidaFinalizadaError)
   end
 
-  it 'ganador devuelve el jugador que ganó la partida si la partida esta finalizada' do
-    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
-    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
-    partida.jugar_ronda jugador1.juega(Tijera), jugador2.juega(Papel)
-
-    expect( partida.ganador ).to eq jugador1
-  end
 
 end
