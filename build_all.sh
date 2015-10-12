@@ -16,3 +16,9 @@ cd ..
 cd kata2
 bundle install
 bundle exec rake
+
+cd ..
+
+cd kata3
+bundle install
+bundle exec rake
