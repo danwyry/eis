@@ -36,19 +36,11 @@ class Tablero
   end
 
   def ubicar_nave(nave, x, y, orientacion)
-    if fuera_de_tablero(x,y)
-      raise FueraDeTableroException
-    end
-
     if nave.tamanio > 1
       ocupar_posiciones nave, [x,y], orientacion
     else
       ocupar_posicion nave, [x,y]
     end
-  end
-
-  def fuera_de_tablero(x, y)
-    return  (x > @ancho || x < 1 || y > @alto || y < 1 )
   end
 
   def quitar_nave(nave)
@@ -61,6 +53,10 @@ class Tablero
     if (@ocupados.key? coord)
       raise PosicionOcupadaException
     end
+    if fuera_de_tablero(coord)
+      raise FueraDeTableroException
+    end
+
     @ocupados[coord]=nave
   end
 
@@ -74,6 +70,13 @@ class Tablero
       raise PosicionOcupadaException
     end
   end
+
+  def fuera_de_tablero(coord)
+    x = coord[0]
+    y = coord[1]
+    return  (x > @ancho || x < 1 || y > @alto || y < 1 )
+  end
+
 end
 
 class OrientacionFactory

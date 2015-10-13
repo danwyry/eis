@@ -47,13 +47,14 @@ Feature: Ubicar barcos
   Scenario: ubico una nave (cualquiera sea) fuera del tablero y falla
     When ubico el submarino en la posicion (11,1)
     Then la nave no queda ubicada en el tablero y se genera un error de fuera de tablero
-  @wip
+
   Scenario: ubico un crucero en una posicion en la que no cabe la completitud de la nave y falla
     Given la posicion (10,1) no esta ocupada
     When ubico el crucero horizontalmente en la posicion (10,1)
-    Then el crucero no queda ubicado en el tablero 
+    Then el crucero no queda ubicado en el tablero y se genera un error de fuera de tablero
+
   @wip
   Scenario: ubico un destructor en una posicion en la que no cabe la completitud de la nave y falla
-    Given las posiciones (9,1) y (10,1) no estan ocupadas
+    Given la posicion (9,1) no esta ocupada
     When ubico un destructor horizontalmente en la posicion (9,1)
     Then el destructor no queda ubicado en el tablero 

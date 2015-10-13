@@ -88,4 +88,11 @@ Then(/^la nave no queda ubicada en el tablero y se genera un error de fuera de t
   expect(@exception).to be_an_instance_of FueraDeTableroException
 end
 
+Given(/^la posicion \((\d+),(\d+)\) no esta ocupada$/) do |arg1, arg2|
+end
+
+Then(/^el crucero no queda ubicado en el tablero y se genera un error de fuera de tablero$/) do
+  expect(@exception).to be_an_instance_of FueraDeTableroException
+end
+
 
