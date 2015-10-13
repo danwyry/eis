@@ -12,25 +12,24 @@ Feature: Ubicar barcos
     When ubico el submarino en la posicion (1,1)
     Then el submarino queda ubicado ocupando la posicion (1,1)
 
-  @wip
   Scenario: ubico un crucero horizontalmente en el tablero con exito
-    When ubico el crucero horizontalmente en la posicion (1,1)
-    Then el crucero queda ubicado ocupando las posiciones (1,1) y (1,2)
+    When ubico el crucero horizontalmente en la posicion (1,2)
+    Then el crucero queda ubicado ocupando las posiciones (1,2) y (2,2)
 
   @wip
   Scenario: ubico un crucero verticalmente en el tablero con exito
-    When ubico el crucero verticalmente en la posicion (1,1)
-    Then el crucero queda ubicado ocupando las posiciones (1,1) y (2,1)
+    When ubico el crucero verticalmente en la posicion (1,10)
+    Then el crucero queda ubicado ocupando las posiciones (1,10) y (1,9)
 
   @wip
   Scenario: ubico un destructor horizontalmente en el tablero con exito
-    When ubico el destructor horizontalmente en la posicion (1,1)
-    Then el destructor queda ubicado ocupando las posiciones (1,1), (1,2) y (1,3)
+    When ubico el destructor horizontalmente en la posicion (1,3)
+    Then el destructor queda ubicado ocupando las posiciones (1,3), (2,3) y (3,3)
 
   @wip
   Scenario: ubico un destructor verticalmente en el tablero con exito
-    When ubico el destructor verticalmente en la posicion (1,1)
-    Then el destructor queda ubicado ocupando las posiciones (1,1), (2,1) y (3,1)
+    When ubico el destructor verticalmente en la posicion (2,10)
+    Then el destructor queda ubicado ocupando las posiciones (2,10), (2,9) y (2,8)
 
   # Casos de error: Escenario 2
 
