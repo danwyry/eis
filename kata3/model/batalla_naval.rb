@@ -17,9 +17,11 @@ class BatallaNaval
     @tablero_jugador[jugador].nave_en x,y
   end
 
-  def ubicar_nave(jugador, tipo_nave, x, y) 
+  def ubicar_nave(jugador, tipo_nave, x, y, tipo_orientacion=Tablero::HORIZONTAL) 
     nave = NaveFactory.construir(tipo_nave)
-    @tablero_jugador[jugador].ubicar_nave(nave, x, y) 
+    orientacion = OrientacionFactory.clase(tipo_orientacion)
+    @tablero_jugador[jugador].ubicar_nave(nave, x, y, orientacion) 
   end
+
 
 end

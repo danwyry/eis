@@ -1,9 +1,9 @@
 class NaveFactory
-  def self.class(tipo_nave) 
-    return Object.const_get(tipo_nave.to_s.capitalize)
+  def self.clase(tipo)
+    return Object.const_get(tipo.to_s.capitalize)
   end
-  def self.construir(tipo_nave)
-    self.class(tipo_nave).new
+  def self.construir(tipo)
+    self.clase(tipo).new
   end
 end
 
@@ -11,5 +11,20 @@ class Nave
 end
 
 class Submarino < Nave
+  def tamanio 
+    return 1
+  end
+end
+
+class Crucero < Nave
+  def tamanio
+    return 2
+  end
+end
+
+class Destructor < Nave
+  def tamanio
+    return 3
+  end
 end
 
