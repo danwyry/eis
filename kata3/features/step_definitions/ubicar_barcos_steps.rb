@@ -53,3 +53,7 @@ Then(/^el destructor queda ubicado ocupando las posiciones \((\d+),(\d+)\), \((\
   expect(@juego.nave_en @jugador,x3.to_i,y3.to_i).to be_an_instance_of Destructor
 end
 
+When(/^ubico el destructor verticalmente en la posicion \((\d+),(\d+)\)$/) do |x, y|
+  @juego.ubicar_nave @jugador, "destructor", x.to_i, y.to_i, "vertical"
+end
+
