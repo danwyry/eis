@@ -23,5 +23,8 @@ class BatallaNaval
     @tablero_jugador[jugador].ubicar_nave(nave, x, y, orientacion) 
   end
 
+  def disparar(jugador, x, y) 
+    return @tablero_jugador[jugador].disparar x, y
+  end
 
 end

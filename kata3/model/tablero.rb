@@ -43,8 +43,11 @@ class Tablero
     end
   end
 
-  def quitar_nave(nave)
-    @ocupados.delete_if { | coord, actual | actual == nave }
+  def disparar(x, y) 
+    if ocupado? x,y
+      nave_en(x,y).golpe_en x,y
+    end
+    return ocupado? x,y
   end
 
   private
@@ -57,6 +60,7 @@ class Tablero
       raise FueraDeTableroException
     end
 
+    nave.ocupa coord
     @ocupados[coord]=nave
   end
 
@@ -76,6 +80,11 @@ class Tablero
     y = coord[1]
     return  (x > @ancho || x < 1 || y > @alto || y < 1 )
   end
+
+  def quitar_nave(nave)
+    @ocupados.delete_if { | coord, actual | actual == nave }
+  end
+
 
 end
 

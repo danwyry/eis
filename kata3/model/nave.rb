@@ -8,6 +8,24 @@ class NaveFactory
 end
 
 class Nave
+  INTACTO='intacto'
+  AVERIADO='averiado'
+
+  def initialize()
+    @posiciones = {}
+  end
+
+  def golpe_en(coord)
+    @posiciones[coord] = AVERIADO 
+  end
+
+  def ocupa(coord) 
+    @posiciones[coord] = INTACTO
+  end
+
+  def hundido? 
+    @posiciones.values.all? { | estado | estado == AVERIADO }
+  end
 end
 
 class Submarino < Nave

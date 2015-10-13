@@ -96,4 +96,10 @@ describe 'BatallaNaval' do
   it 'ubicar_nave(jugador, destructor , 10,1, horizontal) lanza una FueraDeTableroException si no cabe la completitud del destructor en los rangos del tablero' do
     expect{ juego.ubicar_nave(jugador, "destructor", 9, 1, 'horizontal' ) }.to raise_error  FueraDeTableroException
   end
+
+
+  it 'disparar(jugador, 1,1) devuelve false' do
+    expect(juego.disparar(jugador,1,1) ).to be_falsey
+  end
+
 end
