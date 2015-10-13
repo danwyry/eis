@@ -53,17 +53,17 @@ describe 'BatallaNaval' do
 
   end
 
-#  it 'ubicar_nave(jugador, "destructor", 2,10, "vertical") ubica un crucero ocupando las posiciones (2,10), (2,9) y (2,8) del tablero del jugador' do
-#    juego.ubicar_nave jugador, "destructor", 2, 10, "vertical"
-#
-#    expect( juego.ocupado?(jugador, 2, 10) ).to be_truthy
-#    expect( juego.ocupado?(jugador, 2, 9) ).to be_truthy
-#    expect( juego.ocupado?(jugador, 2, 8) ).to be_truthy
-#
-#    expect( juego.nave_en(jugador, 2, 10) ).to be_an_instance_of Destructor
-#    expect( juego.nave_en(jugador, 2, 9) ).to be_an_instance_of Destructor
-#    expect( juego.nave_en(jugador, 2, 8) ).to be_an_instance_of Destructor
-#
-#  end
+  it 'ubicar_nave(jugador, "destructor", 2,10, "vertical") ubica un crucero ocupando las posiciones (2,10), (2,9) y (2,8) del tablero del jugador' do
+    juego.ubicar_nave jugador, "destructor", 2, 10, "vertical"
+
+    expect( juego.ocupado?(jugador, 2, 10) ).to be_truthy
+    expect( juego.ocupado?(jugador, 2, 9) ).to be_truthy
+    expect( juego.ocupado?(jugador, 2, 8) ).to be_truthy
+
+    expect( juego.nave_en(jugador, 2, 10) ).to be_an_instance_of Destructor
+    expect( juego.nave_en(jugador, 2, 9) ).to be_an_instance_of Destructor
+    expect( juego.nave_en(jugador, 2, 8) ).to be_an_instance_of Destructor
+
+  end
 
 end
