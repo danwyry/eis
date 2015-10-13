@@ -33,3 +33,8 @@ Then(/^el crucero queda ubicado ocupando las posiciones \((\d+),(\d+)\) y \((\d+
   expect(@juego.nave_en @jugador,x2.to_i,y2.to_i).to be_an_instance_of Crucero
 end
 
+When(/^ubico el crucero verticalmente en la posicion \((\d+),(\d+)\)$/) do |x, y|
+  @juego.ubicar_nave @jugador, "crucero", x.to_i, y.to_i, "vertical"
+end
+
+

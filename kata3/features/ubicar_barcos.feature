@@ -16,7 +16,6 @@ Feature: Ubicar barcos
     When ubico el crucero horizontalmente en la posicion (1,2)
     Then el crucero queda ubicado ocupando las posiciones (1,2) y (2,2)
 
-  @wip
   Scenario: ubico un crucero verticalmente en el tablero con exito
     When ubico el crucero verticalmente en la posicion (1,10)
     Then el crucero queda ubicado ocupando las posiciones (1,10) y (1,9)
