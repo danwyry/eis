@@ -95,4 +95,9 @@ Then(/^el crucero no queda ubicado en el tablero y se genera un error de fuera d
   expect(@exception).to be_an_instance_of FueraDeTableroException
 end
 
+Then(/^el destructor no queda ubicado en el tablero y se genera un error de fuera de tablero$/) do
+  expect(@exception).to be_an_instance_of FueraDeTableroException
+end
+
+
 
