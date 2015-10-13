@@ -38,3 +38,18 @@ When(/^ubico el crucero verticalmente en la posicion \((\d+),(\d+)\)$/) do |x, y
 end
 
 
+When(/^ubico el destructor horizontalmente en la posicion \((\d+),(\d+)\)$/) do |x, y|
+  @juego.ubicar_nave @jugador, "destructor", x.to_i, y.to_i, "horizontal"
+end
+
+Then(/^el destructor queda ubicado ocupando las posiciones \((\d+),(\d+)\), \((\d+),(\d+)\) y \((\d+),(\d+)\)$/) do |x1, y1, x2, y2, x3, y3|
+  expect(@juego.ocupado? @jugador,x1.to_i,y1.to_i).to be_truthy
+  expect(@juego.nave_en @jugador,x1.to_i,y1.to_i).to be_an_instance_of Destructor 
+
+  expect(@juego.ocupado? @jugador,x2.to_i,y2.to_i).to be_truthy
+  expect(@juego.nave_en @jugador,x2.to_i,y2.to_i).to be_an_instance_of Destructor
+
+  expect(@juego.ocupado? @jugador,x3.to_i,y3.to_i).to be_truthy
+  expect(@juego.nave_en @jugador,x3.to_i,y3.to_i).to be_an_instance_of Destructor
+end
+
