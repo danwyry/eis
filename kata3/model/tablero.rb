@@ -48,7 +48,7 @@ class Tablero
   end
 
   def fuera_de_tablero(x, y)
-    false
+    return  (x > @ancho || x < 1 || y > @alto || y < 1 )
   end
 
   def quitar_nave(nave)

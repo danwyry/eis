@@ -84,5 +84,9 @@ describe 'BatallaNaval' do
     expect{ juego.ubicar_nave(jugador, "destructor", 3, 5, 'horizontal' ) }.to raise_error PosicionOcupadaException
   end
 
+  it 'ubicar_nave(jugador, "submarino", 11,1, "horizontal") lanza un FueraDeTableroException' do 
+    expect{ juego.ubicar_nave(jugador, "submarino", 11, 1, 'horizontal' ) }.to raise_error FueraDeTableroException
+  end
+
 
 end
