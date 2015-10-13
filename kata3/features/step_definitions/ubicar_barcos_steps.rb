@@ -13,7 +13,10 @@ end
 # Scenario 1
 
 When(/^ubico el submarino en la posicion \((\d+),(\d+)\)$/) do |x, y|
-  @juego.ubicar_nave(@jugador, "submarino", x.to_i, y.to_i)
+  begin 
+    @juego.ubicar_nave(@jugador, "submarino", x.to_i, y.to_i)
+  rescue Exception => @exception 
+  end
 end
 
 Then(/^el submarino queda ubicado ocupando la posicion \((\d+),(\d+)\)$/) do |x, y|
@@ -22,7 +25,10 @@ Then(/^el submarino queda ubicado ocupando la posicion \((\d+),(\d+)\)$/) do |x,
 end
 
 When(/^ubico el crucero horizontalmente en la posicion \((\d+),(\d+)\)$/) do |x,y|
-  @juego.ubicar_nave @jugador, "crucero", x.to_i, y.to_i, "horizontal"
+  begin 
+    @juego.ubicar_nave @jugador, "crucero", x.to_i, y.to_i, "horizontal"
+  rescue Exception => @exception 
+  end
 end
 
 Then(/^el crucero queda ubicado ocupando las posiciones \((\d+),(\d+)\) y \((\d+),(\d+)\)$/) do |x1, y1, x2, y2|
@@ -34,12 +40,18 @@ Then(/^el crucero queda ubicado ocupando las posiciones \((\d+),(\d+)\) y \((\d+
 end
 
 When(/^ubico el crucero verticalmente en la posicion \((\d+),(\d+)\)$/) do |x, y|
-  @juego.ubicar_nave @jugador, "crucero", x.to_i, y.to_i, "vertical"
+  begin 
+    @juego.ubicar_nave @jugador, "crucero", x.to_i, y.to_i, "vertical"
+  rescue Exception => @exception 
+  end
 end
 
 
 When(/^ubico el destructor horizontalmente en la posicion \((\d+),(\d+)\)$/) do |x, y|
-  @juego.ubicar_nave @jugador, "destructor", x.to_i, y.to_i, "horizontal"
+  begin
+    @juego.ubicar_nave @jugador, "destructor", x.to_i, y.to_i, "horizontal"
+  rescue Exception => @exception 
+  end
 end
 
 Then(/^el destructor queda ubicado ocupando las posiciones \((\d+),(\d+)\), \((\d+),(\d+)\) y \((\d+),(\d+)\)$/) do |x1, y1, x2, y2, x3, y3|
@@ -54,6 +66,14 @@ Then(/^el destructor queda ubicado ocupando las posiciones \((\d+),(\d+)\), \((\
 end
 
 When(/^ubico el destructor verticalmente en la posicion \((\d+),(\d+)\)$/) do |x, y|
-  @juego.ubicar_nave @jugador, "destructor", x.to_i, y.to_i, "vertical"
+  begin
+    @juego.ubicar_nave @jugador, "destructor", x.to_i, y.to_i, "vertical"
+  rescue Exception => @exception 
+  end
 end
+
+Then(/^el submarino no queda ubicado y se genera un error de posicion ocupada$/) do
+  expect(@exception).to be_an_instance_of PosicionOcupadaException
+end
+
 

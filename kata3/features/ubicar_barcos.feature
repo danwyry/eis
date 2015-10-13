@@ -30,20 +30,19 @@ Feature: Ubicar barcos
 
   # Casos de error: Escenario 2
 
-  @wip
   Scenario: ubico un submarino en una posicion ya ocupada y falla
-    When ubico un submarino en la posicion (5,5)
-    Then muestra un error "La posicion (5,5) esta ocupada, no se puede ubicar el submarino"
-
+    When ubico el submarino en la posicion (5,5)
+    Then el submarino no queda ubicado y se genera un error de posicion ocupada
   @wip
   Scenario: ubico un crucero en una posicion donde alguno de los lugares que este vaya a ocupar, ya este ocupado y falla
     When ubico un crucero en la posicion (4,5)
-    Then muestra un error "La posicion (5,5) esta ocupada, no se puede ubicar el crucero"
+    Then el crucero no queda ubicado y se genera un error de posicion ocupada
+
 
   @wip
   Scenario: ubico un destructor en una posicion donde alguno de los lugares que este vaya a ocupar, ya este ocupado y falla
     When ubico un destructor horizontalmente en la posicion (4,5)
-    Then muestra un error "La posicion (5,5) esta ocupada, no se puede ubicar el destructor"
+    Then el destructor no queda ubicado y se genera un error de posicion ocupada
 
   # Casos de error: Escenario 3
 
@@ -51,16 +50,14 @@ Feature: Ubicar barcos
   Scenario: ubico una nave (cualquiera sea) fuera del tablero y falla
     Given la posicion (11,1) no esta ocupada
     When ubico la nave en la posicion (11,1)
-    Then la nave no queda ubicada en el tablero y muestra un error "La posicion (11,1) no es una posicion valida"
-
+    Then la nave no queda ubicada en el tablero 
   @wip
   Scenario: ubico un crucero en una posicion en la que no cabe la completitud de la nave y falla
     Given la posicion (10,1) no esta ocupada
     When ubico el crucero horizontalmente en la posicion (10,1)
-    Then el crucero no queda ubicado en el tablero y muestra un error "El crucero no entra en esa posicion"
-
+    Then el crucero no queda ubicado en el tablero 
   @wip
   Scenario: ubico un destructor en una posicion en la que no cabe la completitud de la nave y falla
     Given las posiciones (9,1) y (10,1) no estan ocupadas
     When ubico un destructor horizontalmente en la posicion (9,1)
-    Then el destructor no queda ubicado en el tablero y muestra un error "El destructor no entra en esa posicion"
+    Then el destructor no queda ubicado en el tablero 
