@@ -51,6 +51,10 @@ class Tablero
     false
   end
 
+  def quitar_nave(nave)
+    @ocupados.delete_if { | coord, actual | actual == nave }
+  end
+
   private
 
   def ocupar_posicion(nave, coord)
@@ -61,8 +65,13 @@ class Tablero
   end
 
   def ocupar_posiciones(nave, coord, orientacion)
-    for n in  0..nave.tamanio-1
-      ocupar_posicion nave, orientacion.aumentar(coord,n)
+    begin 
+      for n in  0..nave.tamanio-1
+        ocupar_posicion nave, orientacion.aumentar(coord,n)
+      end
+    rescue PosicionOcupadaException => exception
+      quitar_nave(nave) 
+      raise PosicionOcupadaException
     end
   end
 end

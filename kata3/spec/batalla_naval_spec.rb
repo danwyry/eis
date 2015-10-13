@@ -72,4 +72,11 @@ describe 'BatallaNaval' do
     expect{ juego.ubicar_nave(jugador, "submarino", 5, 5 ) }.to raise_error PosicionOcupadaException
   end
 
+  it 'ubicar_nave(jugador, "crucero", 4,5, "horizontal") lanza una PosicionOcupadaException si una de las posiciones a ocupar por el crucero ya estaba ocupada por otra nave' do
+    juego.ubicar_nave jugador, "submarino", 5, 5
+
+    expect{ juego.ubicar_nave(jugador, "crucero", 4, 5 ) }.to raise_error PosicionOcupadaException
+
+  end
+
 end
