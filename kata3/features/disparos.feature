@@ -18,7 +18,6 @@ Feature: Disparos
     When disparo a la posicion (5,4) del tablero del jugador
     Then el barco pasa a estar averiado en la posicion (5,4)
 
-  @wip
   Scenario: disparo y toco pero no lo hundo
-    When disparo a las posiciones (5,5) y (5,6) del tablero del jugador
-    Then el barco se considera hundido
+    When disparo a las posiciones (5,4) y (6,4) del tablero del jugador
+    Then el barco que estaba en la posicion (5,4) se considera hundido
