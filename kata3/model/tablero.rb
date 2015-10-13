@@ -36,8 +36,8 @@ class Tablero
   end
 
   def ubicar_nave(nave, x, y, orientacion)
-    if fuera_de_rango(x,y)
-      raise FueraDeRangoException
+    if fuera_de_tablero(x,y)
+      raise FueraDeTableroException
     end
 
     if nave.tamanio > 1
@@ -47,7 +47,7 @@ class Tablero
     end
   end
 
-  def fuera_de_rango(x, y)
+  def fuera_de_tablero(x, y)
     false
   end
 
@@ -71,4 +71,10 @@ class OrientacionFactory
   def self.clase(tipo) 
     return Object.const_get(tipo.to_s.capitalize)
   end
+end
+
+class PosicionOcupadaException <Exception
+end
+
+class FueraDeTableroException <Exception
 end
