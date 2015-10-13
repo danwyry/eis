@@ -79,3 +79,9 @@ end
 Then(/^el crucero no queda ubicado y se genera un error de posicion ocupada$/) do
   expect(@exception).to be_an_instance_of PosicionOcupadaException
 end
+
+Then(/^el destructor no queda ubicado y se genera un error de posicion ocupada$/) do
+  expect(@exception).to be_an_instance_of PosicionOcupadaException
+end
+
+
