@@ -28,4 +28,15 @@ describe 'BatallaNaval' do
 
   end
 
+  it 'ubicar_nave(jugador, "crucero", 1,10, "vertical") ubica un crucero ocupando las posiciones (1,10) y (1,9) del tablero del jugador' do
+    juego.ubicar_nave jugador, "crucero", 1, 10, "vertical"
+
+    expect( juego.ocupado?(jugador, 1, 10) ).to be_truthy
+    expect( juego.ocupado?(jugador, 1, 9) ).to be_truthy
+
+    expect( juego.nave_en(jugador, 1, 10) ).to be_an_instance_of Crucero
+    expect( juego.nave_en(jugador, 1, 9) ).to be_an_instance_of Crucero
+
+  end
+
 end

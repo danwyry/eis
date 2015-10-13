@@ -9,7 +9,7 @@ end
 class Vertical 
   def self.aumentar(coord, n)
     res = coord.clone
-    res[1] = res[1] + n
+    res[1] = res[1] - n
     return res
   end
 end 
