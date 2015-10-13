@@ -97,7 +97,6 @@ describe 'BatallaNaval' do
     expect{ juego.ubicar_nave(jugador, "destructor", 9, 1, 'horizontal' ) }.to raise_error  FueraDeTableroException
   end
 
-
   it 'disparar(jugador, 1,1) devuelve false' do
     expect(juego.disparar(jugador,1,1) ).to be_falsey
   end

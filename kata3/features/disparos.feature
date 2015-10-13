@@ -4,7 +4,7 @@ Feature: Disparos
 
   Background:
     Given un tablero de 10 x 10
-    And las posiciones (5,5) y (5,6) del tablero del jugador estan ocupadas por un crucero
+    And las posiciones (5,4) y (6,4) del tablero del jugador estan ocupadas por un crucero
 
   # Casos de disparo y toco agua: Escenario 1
 
@@ -14,10 +14,9 @@ Feature: Disparos
 
   # Casos de disparo y toco pero no lo hundo: Escenario 2
 
-  @wip
   Scenario: disparo y toco pero no lo hundo
-    When disparo a la posicion (5,5) del tablero del jugador
-    Then el barco pasa a estar averiado en la posicion (5,5)
+    When disparo a la posicion (5,4) del tablero del jugador
+    Then el barco pasa a estar averiado en la posicion (5,4)
 
   @wip
   Scenario: disparo y toco pero no lo hundo

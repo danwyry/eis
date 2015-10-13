@@ -45,7 +45,7 @@ class Tablero
 
   def disparar(x, y) 
     if ocupado? x,y
-      nave_en(x,y).golpe_en x,y
+      nave_en(x,y).golpe_en [x,y]
     end
     return ocupado? x,y
   end

@@ -8,11 +8,16 @@ Given(/^las posiciones \((\d+),(\d+)\) y \((\d+),(\d+)\) del tablero del jugador
 end
 
 When(/^disparo a la posicion \((\d+),(\d+)\) del tablero del jugador$/) do |x, y|
-  @resultado_disparo = @juego.disparar @jugador, x, y 
+  @resultado_disparo = @juego.disparar @jugador, x.to_i, y.to_i
 end
 
 Then(/^toca agua$/) do
-  expect(@resultado_disparo).to be false
+  expect(@resultado_disparo).to be_falsey
+end
+
+Then(/^el barco pasa a estar averiado en la posicion \((\d+),(\d+)\)$/) do |x,y|
+  expect(@resultado_disparo).to be_truthy
+  expect(@juego.nave_en(@jugador, x.to_i,y.to_i).averiado?).to be_truthy
 end
 
 

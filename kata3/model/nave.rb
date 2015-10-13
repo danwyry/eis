@@ -23,6 +23,10 @@ class Nave
     @posiciones[coord] = INTACTO
   end
 
+  def averiado? 
+    @posiciones.values.any? { | estado | estado == AVERIADO }
+  end
+
   def hundido? 
     @posiciones.values.all? { | estado | estado == AVERIADO }
   end
