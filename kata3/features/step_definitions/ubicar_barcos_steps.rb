@@ -2,7 +2,7 @@ require_relative '../../model/batalla_naval.rb'
 # Background 
 
 Given(/^un tablero de (\d+) x (\d+)$/) do |ancho, alto|
-  @juego = BatallaNaval.new(ancho, alto)
+  @juego = BatallaNaval.new(ancho.to_i, alto.to_i)
 end
 
 Given(/^la posicion \((\d+),(\d+)\) del tablero del jugador esta ocupada$/) do |x, y|
@@ -82,6 +82,10 @@ end
 
 Then(/^el destructor no queda ubicado y se genera un error de posicion ocupada$/) do
   expect(@exception).to be_an_instance_of PosicionOcupadaException
+end
+
+Then(/^la nave no queda ubicada en el tablero y se genera un error de fuera de tablero$/) do
+  expect(@exception).to be_an_instance_of FueraDeTableroException
 end
 
 

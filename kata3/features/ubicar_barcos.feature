@@ -44,11 +44,9 @@ Feature: Ubicar barcos
 
   # Casos de error: Escenario 3
 
-  @wip
   Scenario: ubico una nave (cualquiera sea) fuera del tablero y falla
-    Given la posicion (11,1) no esta ocupada
-    When ubico la nave en la posicion (11,1)
-    Then la nave no queda ubicada en el tablero 
+    When ubico el submarino en la posicion (11,1)
+    Then la nave no queda ubicada en el tablero y se genera un error de fuera de tablero
   @wip
   Scenario: ubico un crucero en una posicion en la que no cabe la completitud de la nave y falla
     Given la posicion (10,1) no esta ocupada
