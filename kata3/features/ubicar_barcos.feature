@@ -33,15 +33,15 @@ Feature: Ubicar barcos
   Scenario: ubico un submarino en una posicion ya ocupada y falla
     When ubico el submarino en la posicion (5,5)
     Then el submarino no queda ubicado y se genera un error de posicion ocupada
-  @wip
+
   Scenario: ubico un crucero en una posicion donde alguno de los lugares que este vaya a ocupar, ya este ocupado y falla
-    When ubico un crucero en la posicion (4,5)
+    When ubico el crucero horizontalmente en la posicion (4,5)
     Then el crucero no queda ubicado y se genera un error de posicion ocupada
 
 
   @wip
   Scenario: ubico un destructor en una posicion donde alguno de los lugares que este vaya a ocupar, ya este ocupado y falla
-    When ubico un destructor horizontalmente en la posicion (4,5)
+    When ubico un destructor horizontalmente en la posicion (3,5)
     Then el destructor no queda ubicado y se genera un error de posicion ocupada
 
   # Casos de error: Escenario 3
