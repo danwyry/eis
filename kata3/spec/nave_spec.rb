@@ -72,7 +72,7 @@ describe 'Crucero' do
     expect(crucero.posiciones).to eq resultado
   end
 
-  it 'ocupa Coordenada.new 1,1 setea la posicion del crucero a (1,1)' do 
+  it 'ubicar_en Coordenada.new 1,1, Vertical setea la posiciones del crucero a (1,1) y (1,2)' do 
     coord = Coordenada.new 1,2
     coord2 = coord.siguiente Vertical, 1
 
@@ -81,7 +81,7 @@ describe 'Crucero' do
     expect(crucero.posiciones).to eq resultado
   end
 
-  it 'golpe_en Coordenada.new 1,2 deja en estado averiado al mismo' do 
+  it 'golpe_en Coordenada.new 1,2 deja en estado averiado al crucero ubicado verticalmente en (1,2)' do 
     coord = Coordenada.new 1,2
     crucero.ubicar_en coord, Vertical
     crucero.golpe_en coord
