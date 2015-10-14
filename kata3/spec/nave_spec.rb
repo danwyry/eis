@@ -14,7 +14,24 @@ describe 'Submarino' do
   end
 
   it 'posiciones devuelve {} si todavía no ocupa ninguna posicion' do 
-    expect(submarino.posiciones).to be {}
+    resultado = {} 
+    expect(submarino.posiciones).to eq resultado
+  end
+
+  it 'posiciones devuelve {(1,1)=>Submarino::INTACTO} si está ocupando esa posicion y no fue averiado' do 
+    coord = Coordenada.new 1,1
+    submarino.ocupa coord
+
+    resultado = {coord => Submarino::INTACTO}
+    expect(submarino.posiciones).to eq resultado
+  end
+
+  it '' do 
+    coord = Coordenada.new 1,1
+    submarino.ocupa coord
+
+    resultado = {coord => Submarino::INTACTO}
+    expect(submarino.posiciones).to eq resultado
   end
 end
 
