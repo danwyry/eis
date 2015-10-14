@@ -40,3 +40,10 @@ describe 'Horizontal'  do
     expect(resultado).to eq Coordenada.new(3,1)
   end
 end
+
+describe 'Vertical'  do
+  it 'aumentar(Coordenada.new(1,3), 2) devuelve la coordenada (1,1)' do
+    resultado = Vertical.aumentar(Coordenada.new(1,3), 2)
+    expect(resultado).to eq Coordenada.new(1,1)
+  end
+end
