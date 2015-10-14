@@ -91,4 +91,10 @@ describe 'Tablero' do
     expect(tablero.nave_en coord2).to be_an_instance_of Destructor
     expect(tablero.nave_en coord3).to be_an_instance_of Destructor
   end
+
+  it 'ubicar_nave? Destructor.new, Coordenada.new(1,2), Vertical lanza una FueraDeTableroException' do
+
+    expect{tablero.ubicar_nave Destructor.new,Coordenada.new(1,2), Vertical}.to raise_error FueraDeTableroException
+
+  end
 end
