@@ -20,5 +20,9 @@ describe 'Coordenada' do
   it '==(Coordenada.new 1,2 ) devuelve true' do
     expect( coord==(Coordenada.new(1,2))).to be_truthy
   end
+
+  it '==(Coordenada.new 1,1 ) devuelve false' do
+    expect( coord==(Coordenada.new(1,1))).to be_falsey
+  end
 end
  
