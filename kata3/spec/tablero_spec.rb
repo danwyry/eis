@@ -75,4 +75,20 @@ describe 'Tablero' do
     expect(tablero.nave_en coord2).to be_an_instance_of Destructor
     expect(tablero.nave_en coord3).to be_an_instance_of Destructor
   end
+
+  it 'ubicar_nave? Destructor.new, Coordenada.new(1,3), Vertical ocupa las posiciones (1,1), (1,2), (1,3) con un Destructor' do
+    coord1 = Coordenada.new 1,3
+    coord2 = Coordenada.new 1,2
+    coord3 = Coordenada.new 1,1
+
+    tablero.ubicar_nave Destructor.new, coord1, Vertical
+
+    expect(tablero.ocupado? coord1).to be_truthy
+    expect(tablero.ocupado? coord2).to be_truthy
+    expect(tablero.ocupado? coord3).to be_truthy
+
+    expect(tablero.nave_en coord1).to be_an_instance_of Destructor
+    expect(tablero.nave_en coord2).to be_an_instance_of Destructor
+    expect(tablero.nave_en coord3).to be_an_instance_of Destructor
+  end
 end
