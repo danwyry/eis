@@ -4,6 +4,7 @@ require_relative '../model/nave.rb'
 
 describe 'Submarino' do
   let(:submarino) { Submarino.new }
+  
 
   it 'tamanio devuelve 1' do
     expect(submarino.tamanio).to eq 1
@@ -33,6 +34,16 @@ describe 'Submarino' do
     resultado = [coord]
     expect(submarino.posiciones.keys).to eq resultado
   end
+
+  it 'golpe_en Coordenada.new 1,1 deja en estado hundido al mismo' do 
+    coord = Coordenada.new 1,1
+    submarino.ocupa coord
+    submarino.golpe_en coord
+
+    expect(submarino.hundido?).to be_truthy
+  end 
+
+
 end
 
 describe 'Crucero' do
