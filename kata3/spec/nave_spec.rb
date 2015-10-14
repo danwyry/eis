@@ -26,12 +26,12 @@ describe 'Submarino' do
     expect(submarino.posiciones).to eq resultado
   end
 
-  it '' do 
+  it 'ocupa Coordenada.new 1,1 setea la posicion del submarino a (1,1)' do 
     coord = Coordenada.new 1,1
     submarino.ocupa coord
 
-    resultado = {coord => Submarino::INTACTO}
-    expect(submarino.posiciones).to eq resultado
+    resultado = [coord]
+    expect(submarino.posiciones.keys).to eq resultado
   end
 end
 
