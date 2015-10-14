@@ -17,7 +17,7 @@ class Tablero
     return @ocupados[coord]
   end
 
-  def ubicar_nave(nave, coord, orientacion)
+  def ubicar_nave(nave, coord, orientacion=nil)
     if nave.tamanio > 1
       ocupar_posiciones nave, coord, orientacion
     else
