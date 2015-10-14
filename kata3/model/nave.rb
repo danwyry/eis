@@ -1,3 +1,5 @@
+require_relative 'coordenada'
+
 class NaveFactory
   def self.clase(tipo)
     return Object.const_get(tipo.to_s.capitalize)

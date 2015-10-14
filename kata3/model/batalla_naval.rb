@@ -1,5 +1,6 @@
 require_relative 'tablero'
 require_relative 'nave'
+require_relative 'coordenada'
 
 class BatallaNaval
   attr_reader :alto_tablero, :ancho_tablero
@@ -10,21 +11,25 @@ class BatallaNaval
   end
 
   def ocupado?(jugador, x, y) 
-    @tablero_jugador[jugador].ocupado? x,y
+    coord = Coordenada.new x,y 
+    @tablero_jugador[jugador].ocupado? coord
   end
 
   def nave_en(jugador, x, y)
-    @tablero_jugador[jugador].nave_en x,y
+    coord = Coordenada.new x,y 
+    @tablero_jugador[jugador].nave_en coord
   end
 
   def ubicar_nave(jugador, tipo_nave, x, y, tipo_orientacion="horizontal") 
     nave = NaveFactory.construir(tipo_nave)
     orientacion = OrientacionFactory.clase(tipo_orientacion)
-    @tablero_jugador[jugador].ubicar_nave(nave, x, y, orientacion) 
+    coord = Coordenada.new x,y
+    @tablero_jugador[jugador].ubicar_nave(nave, coord, orientacion) 
   end
 
   def disparar(jugador, x, y) 
-    return @tablero_jugador[jugador].disparar x, y
+    coord = Coordenada.new x,y 
+    return @tablero_jugador[jugador].disparar coord
   end
 
 end
