@@ -19,15 +19,18 @@ describe 'Tablero' do
   it 'ocupado? Coordenada.new 1,1 devuelve false si la posicion (1,1) esta desocupada' do
     expect(tablero.ocupado? Coordenada.new(1,1)).to be_falsey
   end
-  
+
+  it 'ocupado? Coordenada.new 1,1 devuelve true si la posicion (1,1) esta ocupada por alguna nave' do
+    coord = Coordenada.new 1,1
+    tablero.ubicar_nave Submarino.new, coord
+    expect(tablero.ocupado? Coordenada.new(1,1)).to be_truthy
+  end
+
   it 'ubicar_nave? Submarino.new, Coordenada.new(1,1) ocupa la posicion (1,1) con un submarino' do
     coord = Coordenada.new 1,1
     tablero.ubicar_nave Submarino.new, coord
     expect(tablero.ocupado? coord).to be_truthy
+    expect(tablero.nave_en coord).to be_an_instance_of Submarino
   end
-
-#  it 'ocupado? Coordenada.new 1,1 devuelve true si la posicion (1,1) esta ocupada por alguna nave' do
-#    expect(tablero.ocupado? Coordenada.new(1,1)).to be_falsey
-#  end
 
 end
