@@ -120,4 +120,12 @@ describe 'Tablero' do
   it 'disparar Coordenada.new(1,1) devuelve false si no hay ninguna nave en esa posicion' do 
     expect(tablero.disparar Coordenada.new(1,1)).to be_falsey
   end
+
+  it 'disparar Coordenada.new(1,1) devuelve true si hay nave en esa posicion y la nave queda averiada' do 
+    coord = Coordenada.new(1,1)
+    tablero.ubicar_nave Submarino.new, coord
+    expect(tablero.disparar coord).to be_truthy
+    expect(tablero.nave_en(coord).averiado?).to be_truthy
+
+  end
 end
