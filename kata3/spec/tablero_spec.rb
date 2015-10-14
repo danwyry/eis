@@ -112,4 +112,9 @@ describe 'Tablero' do
     expect(tablero.nave_en Coordenada.new(1,1)).to be nil
   end
 
+  it 'nave_en Coordenada.new(1,1) devuelve un objeto submarino si en esa posicion esta ocupada por un Submarino' do 
+    tablero.ubicar_nave Submarino.new, Coordenada.new(1,1)
+    expect(tablero.nave_en Coordenada.new(1,1)).to be_an_instance_of Submarino 
+  end
+
 end
