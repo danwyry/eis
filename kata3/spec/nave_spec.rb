@@ -93,4 +93,66 @@ end
 
 describe 'Destructor' do
   let(:destructor) { Destructor.new }
+
+
+
+  it 'tamanio devuelve 3' do
+    expect(destructor.tamanio).to eq 3
+  end
+
+  it 'un destructor se inicializa sin averías' do 
+    expect(destructor.averiado?).to be_falsey
+  end
+
+  it 'posiciones devuelve {} si todavía no ocupa ninguna posicion' do 
+    resultado = []
+    expect(destructor.posiciones).to eq resultado
+  end
+
+  it 'posiciones devuelve [(1,1),(1,2),(1,3)] si fue ubicado en (1,3) verticalmente' do 
+    coord = Coordenada.new 1,3
+    coord2 = coord.siguiente Vertical, 1
+    coord3 = coord.siguiente Vertical, 2
+
+    destructor.ubicar_en coord, Vertical
+    resultado = [coord, coord2, coord3]
+    expect(destructor.posiciones).to eq resultado
+  end
+
+  it 'ubicar_en Coordenada.new(1,3),Vertical setea las posiciones del destructor en (1,1),(1,2),(1,3)' do 
+    coord = Coordenada.new 1,2
+    coord2 = coord.siguiente Vertical, 1
+    coord3 = coord.siguiente Vertical, 2
+
+    destructor.ubicar_en coord, Vertical
+    resultado = [coord, coord2,coord3]
+    expect(destructor.posiciones).to eq resultado
+  end
+
+  it 'golpe_en Coordenada.new 1,1 deja en estado averiado al mismo' do 
+    coord = Coordenada.new 1,3
+    destructor.ubicar_en coord, Vertical
+    destructor.golpe_en coord
+
+    expect(destructor.averiado?).to be_truthy
+  end 
+
+  it 'hundido? devuelve false si fue ubicado verticalmente en (1,3) y se golpeo en las posiciones (1,1) y (1,2)' do 
+    coord = Coordenada.new 1,3
+    destructor.ubicar_en coord, Vertical
+    destructor.golpe_en coord
+    destructor.golpe_en coord.siguiente(Vertical,1)
+
+    expect(destructor.hundido?).to be_falsey
+  end 
+
+  it 'hundido? devuelve true si fue ubicado verticalmente en (1,3) y se golpeo en las posiciones (1,1),(1,2) y (1,3)' do 
+    coord = Coordenada.new 1,3
+    destructor.ubicar_en coord, Vertical
+    destructor.golpe_en coord
+    destructor.golpe_en coord.siguiente(Vertical,1)
+    destructor.golpe_en coord.siguiente(Vertical,2)
+
+    expect(destructor.hundido?).to be_truthy
+  end 
 end
