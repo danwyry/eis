@@ -97,4 +97,10 @@ describe 'Tablero' do
     expect{tablero.ubicar_nave Destructor.new,Coordenada.new(1,2), Vertical}.to raise_error FueraDeTableroException
 
   end
+  
+  it 'ubicar_nave? Crucero.new, Coordenada.new(10,1), Horizontal lanza una FueraDeTableroException' do
+
+    expect{tablero.ubicar_nave Crucero.new,Coordenada.new(10,1), Horizontal}.to raise_error FueraDeTableroException
+
+  end
 end
