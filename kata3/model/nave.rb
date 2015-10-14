@@ -10,6 +10,7 @@ class NaveFactory
 end
 
 class Nave
+  attr_reader :posiciones
   INTACTO='intacto'
   AVERIADO='averiado'
 

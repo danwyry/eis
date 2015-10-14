@@ -12,6 +12,10 @@ describe 'Submarino' do
   it 'un submarino se inicializa sin averías' do 
     expect(submarino.averiado?).to be_falsey
   end
+
+  it 'posiciones devuelve {} si todavía no ocupa ninguna posicion' do 
+    expect(submarino.posiciones).to be {}
+  end
 end
 
 describe 'Crucero' do
