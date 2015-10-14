@@ -64,16 +64,7 @@ class Tablero
   def quitar_nave(nave)
     @ocupados.delete_if { | coord, actual | actual == nave }
   end
-
-
 end
-
-class OrientacionFactory
-  def self.clase(tipo) 
-    return Object.const_get(tipo.to_s.capitalize)
-  end
-end
-
 
 class PosicionOcupadaException <Exception
 end
