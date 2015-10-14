@@ -108,4 +108,8 @@ describe 'Tablero' do
     expect{tablero.ubicar_nave Submarino.new,Coordenada.new(11,1) }.to raise_error FueraDeTableroException
   end
 
+  it 'nave_en Coordenada.new(1,1) devuelve nil si no hay ninguna nave en esa posicion' do 
+    expect(tablero.nave_en Coordenada.new(1,1)).to be nil
+  end
+
 end

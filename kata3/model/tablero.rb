@@ -9,10 +9,6 @@ class Tablero
     @ocupados = {} 
   end
 
-  def ocupados 
-    return @ocupados
-  end
-
   def ocupado?(coord)
     return  @ocupados.key? coord
   end
