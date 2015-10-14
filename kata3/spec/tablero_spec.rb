@@ -117,4 +117,7 @@ describe 'Tablero' do
     expect(tablero.nave_en Coordenada.new(1,1)).to be_an_instance_of Submarino 
   end
 
+  it 'disparar Coordenada.new(1,1) devuelve false si no hay ninguna nave en esa posicion' do 
+    expect(tablero.disparar Coordenada.new(1,1)).to be_falsey
+  end
 end
