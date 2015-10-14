@@ -9,6 +9,10 @@ class Tablero
     @ocupados = {} 
   end
 
+  def ocupados 
+    return @ocupados
+  end
+
   def ocupado?(coord)
     return  @ocupados.key? coord
   end
@@ -52,8 +56,12 @@ class Tablero
         ocupar_posicion nave, coord.siguiente(orientacion,n)
       end
     rescue PosicionOcupadaException => exception
-      quitar_nave(nave) 
+      quitar_nave(nave)
       raise PosicionOcupadaException
+      
+    rescue FueraDeTableroException => exception
+      quitar_nave(nave)
+      raise FueraDeTableroException
     end
   end
 
@@ -62,7 +70,9 @@ class Tablero
   end
 
   def quitar_nave(nave)
-    @ocupados.delete_if { | coord, actual | actual == nave }
+    @ocupados.delete_if { | coord, actual | 
+      actual == nave 
+    }
   end
 end
 

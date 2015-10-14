@@ -92,15 +92,20 @@ describe 'Tablero' do
     expect(tablero.nave_en coord3).to be_an_instance_of Destructor
   end
 
-  it 'ubicar_nave? Destructor.new, Coordenada.new(1,2), Vertical lanza una FueraDeTableroException' do
-    expect{tablero.ubicar_nave Destructor.new,Coordenada.new(1,2), Vertical}.to raise_error FueraDeTableroException
+  it 'ubicar_nave? Destructor.new, Coordenada.new(2,2), Vertical lanza una FueraDeTableroException y ninguna de las posiciones que debía ocupar estan ocupadas' do
+    coord = Coordenada.new(1,2)
+    expect{tablero.ubicar_nave  Destructor.new,coord, Vertical}.to raise_error FueraDeTableroException
+    expect(tablero.ocupado? coord).to be_falsey 
   end
   
-  it 'ubicar_nave? Crucero.new, Coordenada.new(10,1), Horizontal lanza una FueraDeTableroException' do
-    expect{tablero.ubicar_nave Crucero.new,Coordenada.new(10,1), Horizontal}.to raise_error FueraDeTableroException
+  it 'ubicar_nave? Crucero.new, Coordenada.new(10,1), Horizontal lanza una FueraDeTableroException y ninguna de las posiciones que debía ocupar están ocupadas' do
+    coord = Coordenada.new(10,1)
+    expect{tablero.ubicar_nave Crucero.new,coord, Horizontal}.to raise_error FueraDeTableroException
+    expect(tablero.ocupado? coord).to be_falsey 
   end
 
   it 'ubicar_nave? Submarino.new, Coordenada.new(11,1) lanza una FueraDeTableroException' do
     expect{tablero.ubicar_nave Submarino.new,Coordenada.new(11,1) }.to raise_error FueraDeTableroException
   end
+
 end
