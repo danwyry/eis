@@ -33,4 +33,16 @@ describe 'Tablero' do
     expect(tablero.nave_en coord).to be_an_instance_of Submarino
   end
 
+  it 'ubicar_nave? Crucero.new, Coordenada.new(1,1), Horizontal  ocupa las posicion (1,1) y (2,1) con un Crucero' do
+    coord1 = Coordenada.new 1,1
+    coord2 = Coordenada.new 2,1
+
+    tablero.ubicar_nave Crucero.new, coord1, Horizontal
+
+    expect(tablero.ocupado? coord1).to be_truthy
+    expect(tablero.ocupado? coord2).to be_truthy
+    expect(tablero.nave_en coord1).to be_an_instance_of Crucero
+    expect(tablero.nave_en coord2).to be_an_instance_of Crucero
+  end
+
 end
