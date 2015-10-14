@@ -1,24 +1,5 @@
-class Horizontal 
-  def self.aumentar(coord, n)
-    res = coord.clone
-    res[0] = res[0] + n
-    return res
-  end
-end
-
-class Vertical 
-  def self.aumentar(coord, n)
-    res = coord.clone
-    res[1] = res[1] - n
-    return res
-  end
-end 
-
 class Tablero 
   attr_reader :ancho, :alto
-
-  HORIZONTAL=Horizontal
-  VERTICAL=Vertical
 
   def initialize(ancho, alto) 
     @ancho = ancho
@@ -94,8 +75,26 @@ class OrientacionFactory
   end
 end
 
+class Horizontal 
+  def self.aumentar(coord, n)
+    res = coord.clone
+    res[0] = res[0] + n
+    return res
+  end
+end
+
+class Vertical 
+  def self.aumentar(coord, n)
+    res = coord.clone
+    res[1] = res[1] - n
+    return res
+  end
+end 
+
+
 class PosicionOcupadaException <Exception
 end
 
 class FueraDeTableroException <Exception
 end
+
