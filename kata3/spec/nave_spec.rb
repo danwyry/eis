@@ -58,12 +58,12 @@ describe 'Crucero' do
     expect(crucero.averiado?).to be_falsey
   end
 
-  it 'posiciones devuelve {} si todavía no ocupa ninguna posicion' do 
+  it 'posiciones devuelve [] si todavía no ocupa ninguna posicion' do 
     resultado = []
     expect(crucero.posiciones).to eq resultado
   end
 
-  it 'posiciones devuelve {(1,1)=>Crucero::INTACTO, (1,2)=>Crucero::INTACTO} si está ocupando esas posiciones y no fue averiado' do 
+  it 'posiciones devuelve [(1,1),(1,2)] si está ocupando esas posiciones ' do 
     coord = Coordenada.new 1,2
     coord2 = coord.siguiente Vertical, 1
 
@@ -81,7 +81,7 @@ describe 'Crucero' do
     expect(crucero.posiciones).to eq resultado
   end
 
-  it 'golpe_en Coordenada.new 1,1 deja en estado averiado al mismo' do 
+  it 'golpe_en Coordenada.new 1,2 deja en estado averiado al mismo' do 
     coord = Coordenada.new 1,2
     crucero.ubicar_en coord, Vertical
     crucero.golpe_en coord
@@ -89,6 +89,22 @@ describe 'Crucero' do
     expect(crucero.averiado?).to be_truthy
   end 
 
+  it 'hundido? devuelve false si fue ubicado horizontalmente en (1,3) y se golpeo en la posicion (1,3)' do 
+    coord = Coordenada.new 1,3
+    crucero.ubicar_en coord, Horizontal
+    crucero.golpe_en coord
+
+    expect(crucero.hundido?).to be_falsey
+  end 
+
+  it 'hundido? devuelve true si fue ubicado verticalmente en (1,3) y se golpeo en las posiciones (2,3) y (1,3)' do 
+    coord = Coordenada.new 1,3
+    crucero.ubicar_en coord, Horizontal
+    crucero.golpe_en coord
+    crucero.golpe_en coord.siguiente(Horizontal,1)
+
+    expect(crucero.hundido?).to be_truthy
+  end 
 end
 
 describe 'Destructor' do
@@ -129,7 +145,7 @@ describe 'Destructor' do
     expect(destructor.posiciones).to eq resultado
   end
 
-  it 'golpe_en Coordenada.new 1,1 deja en estado averiado al mismo' do 
+  it 'golpe_en Coordenada.new 1,3 deja en estado averiado al mismo' do 
     coord = Coordenada.new 1,3
     destructor.ubicar_en coord, Vertical
     destructor.golpe_en coord
