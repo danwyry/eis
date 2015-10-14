@@ -16,5 +16,9 @@ describe 'Coordenada' do
   it 'siguiente(Vertical, 1) devuelve una coordenada con valor y=1' do
     expect( coord.siguiente(Vertical,1).x ).to eq 1
   end
+
+  it '==(Coordenada.new 1,2 ) devuelve true' do
+    expect( coord==(Coordenada.new(1,2))).to be_truthy
+  end
 end
  
