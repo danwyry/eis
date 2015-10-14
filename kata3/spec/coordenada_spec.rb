@@ -26,3 +26,17 @@ describe 'Coordenada' do
   end
 end
  
+=begin 
+class Horizontal 
+  def self.aumentar(coord, n)
+
+class Vertical 
+  def self.aumentar(coord, n)
+=end
+
+describe 'Horizontal'  do
+  it 'aumentar(Coordenada.new(1,1), 2) devuelve la coordenada (3,1)' do
+    resultado = Horizontal.aumentar(Coordenada.new(1,1), 2)
+    expect(resultado).to eq Coordenada.new(3,1)
+  end
+end
