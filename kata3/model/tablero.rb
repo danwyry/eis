@@ -20,8 +20,10 @@ class Tablero
   def ubicar_nave(nave, coord, orientacion=nil)
     if nave.tamanio > 1
       ocupar_posiciones nave, coord, orientacion
+      nave.ubicar_en coord, orientacion
     else
       ocupar_posicion nave, coord 
+      nave.ubicar_en coord
     end
   end
 
@@ -42,7 +44,6 @@ class Tablero
       raise FueraDeTableroException
     end
 
-    nave.ocupa coord
     @ocupados[coord]=nave
   end
 

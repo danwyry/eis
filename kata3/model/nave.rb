@@ -10,7 +10,6 @@ class NaveFactory
 end
 
 class Nave
-  attr_reader :posiciones
   INTACTO='intacto'
   AVERIADO='averiado'
 
@@ -18,11 +17,15 @@ class Nave
     @posiciones = {}
   end
 
+  def posiciones
+    return @posiciones.keys
+  end 
+
   def golpe_en(coord)
     @posiciones[coord] = AVERIADO 
   end
 
-  def ocupa(coord) 
+  def ocupar_posicion(coord) 
     @posiciones[coord] = INTACTO
   end
 
@@ -39,15 +42,27 @@ class Submarino < Nave
   def tamanio 
     return 1
   end
+  def ubicar_en(coord) 
+    @posiciones = {} 
+    ocupar_posicion coord
+  end
 end
 
-class Crucero < Nave
+class NaveGrande <Nave
+  def ubicar_en(coord, orientacion) 
+    @posiciones = {} 
+    for n in  0..tamanio-1
+      ocupar_posicion coord.siguiente(orientacion,n)
+    end
+  end
+end 
+class Crucero < NaveGrande
   def tamanio
     return 2
   end
 end
 
-class Destructor < Nave
+class Destructor < NaveGrande
   def tamanio
     return 3
   end
