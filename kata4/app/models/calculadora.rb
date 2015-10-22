@@ -15,7 +15,11 @@ module Calculadora
     end
 
     def promediar(operandos)
-      sumar(operandos) / operandos.size
+      begin
+        sumar(operandos) / operandos.size
+      rescue ZeroDivisionError => error
+        raise OperandosInsuficientesException
+      end
     end
 
     private
@@ -29,4 +33,10 @@ module Calculadora
 end
 
 class OperandosInsuficientesException <Exception
+end
+
+class ZeroDivisionError
+  def message
+    "No se puede dividir por 0"
+  end
 end
