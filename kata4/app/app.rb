@@ -7,8 +7,6 @@ module Calculadora
 
     enable :sessions
 
-
-
     get '/' do
       session[:calc] = Calculadora.new
 
@@ -20,13 +18,16 @@ module Calculadora
 
     post '/' do
 
-      if params[:operando]
+      if params[:operando].strip != ''
         agregar_operando(params[:operando])
       end
 
       if params[:operacion] != '' # agregar nuevo operando
-        @resultado = session[:calc].calcular(params[:operacion], operandos)
-        limpiar_operandos
+        begin
+          @resultado = session[:calc].calcular(params[:operacion], operandos)
+          limpiar_operandos
+        rescue OperandosInsuficientesException => @error
+        end
       end
 
       @operandos = operandos

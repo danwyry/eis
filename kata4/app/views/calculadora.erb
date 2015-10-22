@@ -4,6 +4,16 @@
   <meta charset="utf-8">
 </head>
 <body>
+  <style>
+    .oculto { visibility:hidden }
+    .error { font-weight: bold ; color:darkred ; margin-top: 15px; margin-bottom: 15px}
+  </style>
+
+  <h3>Dan Wyry Calculeitor</h3>
+  <% if @error %>
+    <div class="error">Error de calculo: <%= @error.message %> </div>
+  <% end %>
+
   <div>
     <% for @o in @operandos %>
       <%= @o %>
@@ -11,7 +21,7 @@
     <form method='POST'  >
       <%= csrf_token_field %>
       <input type="number" name="operando" id="operando" value="" />
-      <input type="submit" id="otro_operando" name="operacion" value="" style="visibility:hidden"/>
+      <input type="submit" id="otro_operando" name="operacion" value="" class="oculto"/>
       <br><br>
       <input type="submit" id="suma" name="operacion" value="Sumar" />
       <input type="submit" id="resta" name="operacion" value="Restar" />

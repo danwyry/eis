@@ -11,14 +11,26 @@ Given(/^otro operando es (\d+)$/) do |arg1|
   fill_in 'operando', with: arg1
 end
 
+Given(/^no hay operandos$/) do
+
+end
+
+
 When(/^los sumo$/) do
   click_button 'suma'
 end
 
 When(/^los resto$/) do
-  click_button 'resta' # Write code here that turns the phrase above into concrete actions
+  click_button 'resta'
 end
 
+When(/^calculo el promedio$/) do
+  click_button 'promedio'
+end
+
+Then(/^resulta un error de calculo$/) do
+  expect(page).to have_content('Error de calculo')
+end
 
 
 Then(/^el resultado es (\d+)$/) do |arg1|

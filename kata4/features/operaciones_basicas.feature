@@ -15,13 +15,11 @@ Feature: Operaciones basicas
     When los resto
     Then el resultado es 1
 
-  @wip
-  Scenario: promedio
+  Scenario: operacion que falla por falta de operandos
     Given no hay operandos
     When calculo el promedio
     Then resulta un error de calculo
 
-  @wip
   Scenario: promedio
     Given un operando es 1
     And otro operando es 2

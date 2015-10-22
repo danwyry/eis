@@ -33,10 +33,7 @@ module Calculadora
 end
 
 class OperandosInsuficientesException <Exception
-end
-
-class ZeroDivisionError
   def message
-    "No se puede dividir por 0"
+    "no hay suficientes operandos para realizar la operación"
   end
 end
