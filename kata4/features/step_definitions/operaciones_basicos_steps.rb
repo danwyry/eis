@@ -15,6 +15,12 @@ When(/^los sumo$/) do
   click_button 'suma'
 end
 
+When(/^los resto$/) do
+  click_button 'resta' # Write code here that turns the phrase above into concrete actions
+end
+
+
+
 Then(/^el resultado es (\d+)$/) do |arg1|
   @campo = find_field('resultado')
   expect(@campo.value.to_i).to eq arg1.to_i
