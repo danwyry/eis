@@ -21,4 +21,13 @@ describe 'Calculadora' do
     expect(calc.restar [2,1]).to eq 1
   end
 
+  it 'calcular Promediar, [] debe lanzar una excepcion de parámetros insuficientes' do
+    expect{calc.calcular("Promediar", []) }.to raise_error OperandosInsuficientesException
+  end
+
+  it 'promediar [] debe lanzar una excepción de división por zero' do
+    expect{calc.promediar []}.to raise_error ZeroDivisionError
+  end
+
+
 end
