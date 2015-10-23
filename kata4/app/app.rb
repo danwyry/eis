@@ -1,4 +1,4 @@
-require_relative 'models/calculadora'
+require_relative 'models/calculadora_app_model'
 
 module Calculadora
   class App < Padrino::Application
@@ -8,7 +8,7 @@ module Calculadora
     enable :sessions
 
     get '/' do
-      session[:calc] = Calculadora.new
+      session[:calc] = CalculadoraAppModel.new
 
       limpiar_operandos
       @operandos = operandos
@@ -18,19 +18,22 @@ module Calculadora
 
     post '/' do
 
-      if params[:operando].strip != ''
-        agregar_operando(params[:operando])
+      calc = session[:calc]
+
+      calc.agregar_operando params[:operando]
+
+      calc.procesar_operacion params[:operacion]
+
+      if calc.error?
+        @error = calc.error_message
       end
 
-      if params[:operacion] != '' # agregar nuevo operando
-        begin
-          @resultado = session[:calc].calcular(params[:operacion], operandos)
-          limpiar_operandos
-        rescue OperandosInsuficientesException => @error
-        end
+      if calc.resultado?
+        @resultado = calc.resultado
       end
 
-      @operandos = operandos
+      @operandos = calc.operandos
+
       render 'calculadora'
     end
 
