@@ -21,6 +21,10 @@ class Operacion
     end
   end
 
+  def to_s
+    "#{self.class.to_s} [ #{operandos.join(',')} ] = #{resultado}"
+  end
+
 end
 
 class Suma <Operacion

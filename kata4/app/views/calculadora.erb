@@ -40,7 +40,13 @@
 
 </div>
 <div>
-  Operaciones: <span id="cant_operaciones"><%= @calc.cant_operaciones %></span>
+  # Operaciones: <span id="cant_operaciones"><%= @calc.cant_operaciones %></span><br>
+  <% if @calc.cant_operaciones > 0  %>
+    Operaciones: <br>
+    <% for @op in @calc.operaciones %>
+      <%= @op %><br>
+    <% end %>
+  <% end %>
 </div>
 
 <script type="text/javascript">

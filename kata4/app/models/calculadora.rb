@@ -3,6 +3,8 @@ require_relative 'operacion'
 module Calculadora
   class Calculadora
 
+    attr_reader :operaciones
+
     def initialize
       limpiar_memoria
     end
