@@ -1,8 +1,5 @@
 Feature: Operaciones basicas
 
-  Background:
-    Given entro a la calculadora
-
   Scenario: suma
     Given un operando es 1
     And otro operando es 2

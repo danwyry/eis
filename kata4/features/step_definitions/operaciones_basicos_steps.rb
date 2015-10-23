@@ -1,8 +1,5 @@
-Given(/^entro a la calculadora$/) do
-  visit '/'
-end
-
 Given(/^un operando es (\d+)$/) do |arg1|
+  visit '/'
   fill_in 'operando', with: arg1
 end
 
@@ -12,7 +9,7 @@ Given(/^otro operando es (\d+)$/) do |arg1|
 end
 
 Given(/^no hay operandos$/) do
-
+  visit '/'
 end
 
 
