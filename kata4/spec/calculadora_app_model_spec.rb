@@ -26,6 +26,11 @@ describe 'CalculadoraAppModel' do
     expect(calc_app_model.agregar_operando '1').to eq [1,1]
   end
 
+  it 'procesar_operacion(exponente) genera un error de operación inválida' do
+    calc_app_model.procesar_operacion 'Exponente'
+    expect(calc_app_model.error?).to be_truthy
+    expect(calc_app_model.mensaje_error).to eq 'operacion invalida'
+  end
 
 
 end
