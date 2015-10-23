@@ -47,6 +47,14 @@ module Calculadora
       operacion != 'Agregar operando'
     end
 
+    def pidio_limpiar_memoria? operacion
+      operacion == 'CE'
+    end
+
+    def limpiar_memoria 
+      @calc.limpiar_memoria
+    end
+
     def cant_operaciones
       @calc.cant_operaciones
     end

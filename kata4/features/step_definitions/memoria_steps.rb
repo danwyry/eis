@@ -23,3 +23,8 @@ Then(/^la cantidad de operaiones es (\d+)$/) do | cantidad |
   end
 end
 
+Given(/^reseteo la memoria$/) do
+  click_button 'limpiar_memoria'# Write code here that turns the phrase above into concrete actions
+end
+
+

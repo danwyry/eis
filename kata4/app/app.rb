@@ -20,9 +20,12 @@ module Calculadora
       calc = session[:calc]
 
       calc.agregar_operando params[:operando]
+      if calc.pidio_limpiar_memoria? params[:operacion]
+        calc.limpiar_memoria
 
-      if calc.pidio_operacion? params[:operacion]
+      elsif calc.pidio_operacion? params[:operacion]
         calc.procesar_operacion params[:operacion]
+
       end
 
       if calc.error?

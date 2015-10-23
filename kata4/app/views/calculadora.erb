@@ -26,11 +26,12 @@
     <input type="submit" id="suma" name="operacion" value="Suma" />
     <input type="submit" id="resta" name="operacion" value="Resta" />
     <input type="submit" id="promedio" name="operacion" value="Promedio" />
+    <input type="submit" id="limpiar_memoria" name="operacion" value="CE" />
   </form>
 
   <hr/>
   <br>
-
+  Resultado:
   <% if @resultado  %>
       <input type='number' id="resultado" name="resultado" value="<%= @resultado %>" readonly="readonly" />
   <% else %>

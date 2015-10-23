@@ -4,7 +4,7 @@ module Calculadora
   class Calculadora
 
     def initialize
-      @operaciones = []
+      limpiar_memoria
     end
 
     def calcular(operacion, operandos)
@@ -15,6 +15,10 @@ module Calculadora
 
     def cant_operaciones
       @operaciones.size
+    end
+
+    def limpiar_memoria 
+      @operaciones = [] 
     end
   end
 end
