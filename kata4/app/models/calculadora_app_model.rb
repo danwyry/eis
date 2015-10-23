@@ -47,6 +47,10 @@ module Calculadora
       operacion != 'Agregar operando'
     end
 
+    def cant_operaciones
+      @calc.cant_operaciones
+    end
+
     private
 
 

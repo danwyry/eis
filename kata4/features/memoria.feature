@@ -1,7 +1,5 @@
-@wip
 Feature: memoria de cantidad de operaciones
 
-  @wip
   Scenario: no hice operaciones
     Given no hice operaciones
     Then la cantidad de operaiones es 0

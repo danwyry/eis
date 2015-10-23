@@ -9,9 +9,8 @@ module Calculadora
 
     get '/' do
       session[:calc] = CalculadoraAppModel.new
-
-      limpiar_operandos
-      @operandos = operandos
+      @operandos = session[:calc].operandos
+      @cant_operaciones = session[:calc].cant_operaciones
 
       render 'calculadora'
     end
@@ -34,23 +33,10 @@ module Calculadora
         @resultado = calc.resultado
       end
 
+      @cant_operaciones = calc.cant_operaciones
       @operandos = calc.operandos
 
       render 'calculadora'
-    end
-
-    private
-
-    def operandos
-      session[:operandos]
-    end
-
-    def agregar_operando operando
-      session[:operandos] << operando.to_i
-    end
-
-    def limpiar_operandos
-      session[:operandos] = []
     end
   end
 end

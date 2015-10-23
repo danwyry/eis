@@ -6,6 +6,10 @@ describe 'Calculadora' do
 
   let (:calc) { Calculadora::Calculadora.new }
 
+  it 'al inicializarse cant_operaciones es 0 ' do 
+    expect(calc.cant_operaciones).to eq 0 
+  end 
+
   it 'calcular Sumar, [1,2]' do
     expect(calc.calcular(Suma, [1,2]) ).to eq 3
   end
