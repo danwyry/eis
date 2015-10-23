@@ -21,15 +21,6 @@ describe 'CalculadoraAppModel' do
     expect(calc_app_model.cant_operaciones).to eq 0
   end
 
-  it 'cuando ejecuto agregar_operando("1") operandos devuelve [1]' do
-    expect(calc_app_model.agregar_operando '1').to eq [1]
-  end
-
-  it 'cuando ejecuto agregar_operando("1") dos veces operandos devuelve [1,1]' do
-    expect(calc_app_model.agregar_operando '1').to eq [1]
-    expect(calc_app_model.agregar_operando '1').to eq [1,1]
-  end
-
   it 'procesar_operacion(exponente) genera un error de operación inválida' do
     calc_app_model.procesar_operacion 'Exponente'
 
@@ -37,10 +28,9 @@ describe 'CalculadoraAppModel' do
     expect(calc_app_model.mensaje_error).to eq 'operacion invalida'
   end
 
-  it 'cuando ejecuto procesar_operacion("Sumar") con [1,2] como operandos resultado es 3' do
-    calc_app_model.agregar_operando '1'
-    calc_app_model.agregar_operando '2'
-    calc_app_model.procesar_operacion 'Suma'
+  it 'cuando ejecuto procesar_operacion("Sumar",2) cuando ya estaba el operando 1 agregado, resultado es 3' do
+    calc_app_model.procesar_operacion 'Agregar operando', '1'
+    calc_app_model.procesar_operacion 'Suma', '2'
 
     expect(calc_app_model.resultado?).to be_truthy
     expect(calc_app_model.resultado).to eq 3

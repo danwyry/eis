@@ -10,12 +10,12 @@
 </style>
 
 <h3>Dan Wyry Calculeitor</h3>
-<% if @error %>
-    <div class="error">Error de calculo: <%= @error %> </div>
+<% if @calc.error? %>
+    <div class="error">Error de calculo: <%= @calc.mensaje_error %> </div>
 <% end %>
 
 <div>
-  <% for @o in @operandos %>
+  <% for @o in @calc.operandos %>
       <%= @o %>
   <% end %>
   <form method='POST'  >
@@ -32,15 +32,15 @@
   <hr/>
   <br>
   Resultado:
-  <% if @resultado  %>
-      <input type='number' id="resultado" name="resultado" value="<%= @resultado %>" readonly="readonly" />
+  <% if @calc.resultado?  %>
+      <input type='number' id="resultado" name="resultado" value="<%= @calc.resultado %>" readonly="readonly" />
   <% else %>
       ????
   <% end %>
 
 </div>
 <div>
-  Operaciones: <span id="cant_operaciones"><%= @cant_operaciones %></span>
+  Operaciones: <span id="cant_operaciones"><%= @calc.cant_operaciones %></span>
 </div>
 
 <script type="text/javascript">

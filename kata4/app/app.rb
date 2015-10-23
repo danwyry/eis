@@ -9,35 +9,15 @@ module Calculadora
 
     get '/' do
       session[:calc] = CalculadoraAppModel.new
-      @operandos = session[:calc].operandos
-      @cant_operaciones = session[:calc].cant_operaciones
+      @calc = session[:calc]
 
       render 'calculadora'
     end
 
     post '/' do
 
-      calc = session[:calc]
-
-      calc.agregar_operando params[:operando]
-      if calc.pidio_limpiar_memoria? params[:operacion]
-        calc.limpiar_memoria
-
-      elsif calc.pidio_operacion? params[:operacion]
-        calc.procesar_operacion params[:operacion]
-
-      end
-
-      if calc.error?
-        @error = calc.mensaje_error
-      end
-
-      if calc.resultado?
-        @resultado = calc.resultado
-      end
-
-      @cant_operaciones = calc.cant_operaciones
-      @operandos = calc.operandos
+      @calc = session[:calc]
+      @calc.procesar_operacion params[:operacion], params[:operando]
 
       render 'calculadora'
     end
