@@ -13,6 +13,10 @@ describe 'CalculadoraAppModel' do
     expect(calc_app_model.resultado?).to be_falsey
   end
 
+  it 'debe inicializarse sin error' do
+    expect(calc_app_model.error?).to be_falsey
+  end
+
   it 'cuando ejecuto agregar_operando("1") operandos devuelve [1]' do
     expect(calc_app_model.agregar_operando '1').to eq [1]
   end
