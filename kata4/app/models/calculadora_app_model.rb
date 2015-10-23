@@ -1,3 +1,5 @@
+
+require_relative 'operacion'
 require_relative 'calculadora'
 
 module Calculadora
@@ -31,21 +33,31 @@ module Calculadora
     end
 
     def procesar_operacion(operacion)
-      limpiar_error
-      limpiar_resultado
+      begin
+        limpiar_error
+        limpiar_resultado
 
-      if operacion != 'Agregar operando'
-        calcular_resultado(operacion)
+        validar_operacion operacion
+        calcular_resultado(Object.const_get(operacion))
+      rescue Exception => @error
       end
+    end
+
+    def pidio_operacion? operacion
+      operacion != 'Agregar operando'
     end
 
     private
 
-    def calcular_resultado(operacion)
-      begin
-        @resultado = @calc.calcular(operacion, operandos)
-      rescue OperacionInvalidaException, OperandosInsuficientesException => @error
+
+    def validar_operacion(operacion)
+      if not(Operacion.exists? operacion)
+        raise OperacionInvalidaException
       end
+    end
+
+    def calcular_resultado(operacion)
+      @resultado = @calc.calcular(operacion, operandos)
       limpiar_operandos
     end
 
@@ -61,5 +73,11 @@ module Calculadora
       @error = "NoError"
     end
 
+  end
+end
+
+class OperacionInvalidaException <Exception
+  def message
+    'operacion invalida'
   end
 end

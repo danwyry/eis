@@ -28,6 +28,7 @@ describe 'CalculadoraAppModel' do
 
   it 'procesar_operacion(exponente) genera un error de operación inválida' do
     calc_app_model.procesar_operacion 'Exponente'
+
     expect(calc_app_model.error?).to be_truthy
     expect(calc_app_model.mensaje_error).to eq 'operacion invalida'
   end
@@ -35,7 +36,7 @@ describe 'CalculadoraAppModel' do
   it 'cuando ejecuto procesar_operacion("Sumar") con [1,2] como operandos resultado es 3' do
     calc_app_model.agregar_operando '1'
     calc_app_model.agregar_operando '2'
-    calc_app_model.procesar_operacion 'Sumar'
+    calc_app_model.procesar_operacion 'Suma'
 
     expect(calc_app_model.resultado?).to be_truthy
     expect(calc_app_model.resultado).to eq 3

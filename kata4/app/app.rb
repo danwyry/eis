@@ -22,10 +22,12 @@ module Calculadora
 
       calc.agregar_operando params[:operando]
 
-      calc.procesar_operacion params[:operacion]
+      if calc.pidio_operacion? params[:operacion]
+        calc.procesar_operacion params[:operacion]
+      end
 
       if calc.error?
-        @error = calc.error_message
+        @error = calc.mensaje_error
       end
 
       if calc.resultado?
