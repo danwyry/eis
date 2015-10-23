@@ -3,7 +3,7 @@ require_relative 'calculadora'
 module Calculadora
   class CalculadoraAppModel
 
-    attr_reader :operandos
+    attr_reader :operandos, :resultado
 
     def initialize
       limpiar_operandos

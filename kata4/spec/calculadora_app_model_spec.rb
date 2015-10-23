@@ -32,5 +32,14 @@ describe 'CalculadoraAppModel' do
     expect(calc_app_model.mensaje_error).to eq 'operacion invalida'
   end
 
+  it 'cuando ejecuto procesar_operacion("Sumar") con [1,2] como operandos resultado es 3' do
+    calc_app_model.agregar_operando '1'
+    calc_app_model.agregar_operando '2'
+    calc_app_model.procesar_operacion 'Sumar'
+
+    expect(calc_app_model.resultado?).to be_truthy
+    expect(calc_app_model.resultado).to eq 3
+  end
+
 
 end
