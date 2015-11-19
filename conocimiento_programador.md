@@ -10,7 +10,7 @@ Despues de tener ya varios años de experiencia programando, pero habiendo empez
 
 En mi experiencia y mis conclusiones personales, ambos aspectos del conocimiento son igualmente importante. Los estudiantes sin experiencia suelen tener mayor dificultad para entender ideas rápidamente ya que les es mas dificil asociar lo expuesto ya sea en una clase, libro o artículo, con los problemas reales, mientras que el que tiene experiencia, puede asociar un nuevo conocimiento a una experiencia previa. Mas de una vez me pasó de estar en una clase y cuando alguien explica un concepto nuevo para mi, en seguida pienso "ah, esto podría haberlo hecho así en tal trabajo y hubiera sido mucho mas eficiente, prolijo o correcto."
 
-El artículo me pareció muy interesante ya que gran parte de los puntos que se mencionan fueron como pequeños "hitos" de adquisición de conocimientos prácticos durante mi experiencia laboral, generalmente producto de resolución de problemas que me llevaron mucho tiempo o esfuerzo solucionar, y por lo que veo, no fui el único.  
+El artículo me pareció muy interesante ya que gran parte de los puntos que se mencionan fueron como pequeños "hitos" de adquisición de conocimientos prácticos durante mi experiencia laboral, generalmente producto de resolución de problemas que me llevaron mucho tiempo o esfuerzo solucionar, o que fueron muy recurrentes. Y por lo que veo, no fui el único.  
 
 De alguna manera este párrafo de arriba resume mi opinión sobre todo el artículo.
 
