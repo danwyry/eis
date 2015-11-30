@@ -1,0 +1,42 @@
+Título: Elements of functional programming
+------
+Autor: Chris Reade
+-----
+Fecha de publicación: 1ero de Enero de 1989
+--------------------
+Editorial: Addison-Wesley; 1 edicion 
+---------
+Serie: International Computer Science Series
+-----
+ISBN-10: 0201129159
+-------
+ISBN-13: 978-0201129151
+-------
+Idioma: English
+------
+Paginas: 600 
+-------
+
+Reseña:
+------
+Es un libro que no prevé de parte del lector conocimientos previos en programación funcional, pero no solo introduce sino que ahonda en 
+conceptos y ténicas usadas en los lenguajes del mismo paradigma.
+Si bien el libro fue publicado en 1989, los lectores de diferentes reviews dicen que las ideas y técnicas que el libro propone 
+son perfectamente válidas hoy en día y se siguen usando.
+La notación y los ejemplos provistos en el libro están en Standard ML (un lenguaje funcional con semánticas lazy). 
+
+Temario del libro:  (El libro divide sus temas en dos ramas)
+-----------------
+1)
+El software y su ingeniería
+Notacion y herramientas del software
+Lenguajes de programación de propósito general
+Tipos de lenguajes
+Lenguajes funcionales
+
+2)
+Teoría de la computación 
+Sementicas y razonamiento
+Construcciones de programa
+Construcciones funcionales
+
